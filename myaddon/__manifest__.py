@@ -8,6 +8,7 @@
 
     'description': """
         Long description of module's purpose
+        Test description
     """,
 
     'author': "My Company",
