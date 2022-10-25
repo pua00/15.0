@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="hr_hospital_diagnosis_tree" model="ir.ui.view">
-        <field name="name">hr.hospital.diagnosis.tree ()</field>
-        <field name="model">hr.hospital.diagnosis</field>
+    <record id="view_hr_hospital_diagnosis_tree" model="ir.ui.view">
+        <field name="name">hr_hospital.diagnosis.tree</field>
+        <field name="model">hr_hospital.diagnosis</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -10,9 +10,9 @@
         </field>
     </record>
 
-    <record id="hr_hospital_diagnosis_form" model="ir.ui.view">
-        <field name="name">hr.hospital.diagnosis.form ()</field>
-        <field name="model">hr.hospital.diagnosis</field>
+    <record id="view_hr_hospital_diagnosis_form" model="ir.ui.view">
+        <field name="name">hr_hospital.diagnosis.form</field>
+        <field name="model">hr_hospital.diagnosis</field>
         <field name="arch" type="xml">
             <form>
                 <header></header>
@@ -29,7 +29,7 @@
     <record id="hr_hospital_diagnosis_act_window" model="ir.actions.act_window">
         <field name="name">Diagnosis</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">hr.hospital.diagnosis</field>
+        <field name="res_model">hr_hospital.diagnosis</field>
         <field name="view_mode">tree,form</field>
     </record>
 

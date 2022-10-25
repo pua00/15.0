@@ -5,7 +5,7 @@ _logger = logging.getLogger(__name__)
 
 
 class Patient(models.Model):
-    _name = 'hr.hospital.patient_card'
+    _name = 'hr_hospital.patient_card'
     _description = 'Patient card'
 
     name = fields.Char()
