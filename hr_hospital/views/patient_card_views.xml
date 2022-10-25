@@ -27,7 +27,7 @@
         </field>
     </record>
 
-    <record id="hr_hospital_patient_card_act_window" model="ir.actions.act_window">
+    <record id="hr_hospital_patient_card_action" model="ir.actions.act_window">
         <field name="name">Patient card</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr_hospital.patient_card</field>
@@ -35,7 +35,7 @@
     </record>
 
     <menuitem id="hr_hospital_patient_card_menu"
-              action="hr_hospital_patient_card_act_window"
+              action="hr_hospital_patient_card_action"
               parent="hr_hospital_patients_catalog_menu"
               name="Patient card"
               sequence="400"/>

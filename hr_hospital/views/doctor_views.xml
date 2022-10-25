@@ -27,7 +27,7 @@
         </field>
     </record>
 
-    <record id="hr_hospital_doctor_act_window" model="ir.actions.act_window">
+    <record id="hr_hospital_doctor_action" model="ir.actions.act_window">
         <field name="name">Doctor</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr_hospital.doctor</field>
@@ -35,7 +35,7 @@
     </record>
 
      <menuitem id="hr_hospital_doctor_menu"
-              action="hr_hospital_doctor_act_window"
+              action="hr_hospital_doctor_action"
               parent="hr_hospital_doctors_catalog_menu"
               name="Doctor"
               sequence="300"/>

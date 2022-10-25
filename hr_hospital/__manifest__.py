@@ -10,18 +10,18 @@
     'license': 'OPL-1',
     'version': '15.0.1.0.0',
 
-    'depends': [],
+    'depends': ['base'],  # Якщо модуль, не має прямих залежностей, він повінен мати залежність від базового модуля "base".
     'external_dependencies': {'python': [], },
 
     'data': [
 
         'security/ir.model.access.csv',
 
-        'views/menu.xml',
-        'views/patient.xml',
-        'views/doctor.xml',
-        'views/diagnosis.xml',
-        'views/patient_card.xml',
+        'views/hr_hospital_menus.xml',
+        'views/patient_views.xml',
+        'views/doctor_views.xml',
+        'views/diagnosis_views.xml',
+        'views/patient_card_views.xml',
 
     ],
     'demo': [],
