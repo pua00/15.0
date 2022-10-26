@@ -9,6 +9,9 @@ class Patient(models.Model):
     _name = 'hr_hospital.patient'
     _description = 'Patient'
 
-    name = fields.Char()
-    first_name = fields.Char()
-    sur_name = fields.Char()
+    name = fields.Char(string='')
+    gender = fields.Selection(string='Gender', selection=[('male', "Male"), ('femail', "Femail")], default='male')
+    date_of_birth = fields.Date(string='Date of birth')
+    age = fields.Integer(string='Age of patient')
+    passport_date = fields.Char(string='Passport date')
+    contact_person = fields.Char(string='Person for contact')

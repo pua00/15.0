@@ -6,6 +6,8 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
+                <field name="gender"/>
+                <field name="age"/>
             </tree>
         </field>
     </record>
@@ -19,8 +21,11 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="first_name"/>
-                        <field name="sur_name"/>
+                        <field name="gender"/>
+                        <field name="date_of_birth"/>
+                        <field name="age"/>
+                        <field name="passport_date"/>
+                        <field name="contact_person"/>
                     </group>
                 </sheet>
             </form>
@@ -33,6 +38,7 @@
         <field name="res_model">hr_hospital.patient</field>
         <field name="view_mode">tree,form</field>
     </record>
+
 
     <menuitem id="hr_hospital_patient_menu"
               action="hr_hospital_patient_action"
