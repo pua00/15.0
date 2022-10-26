@@ -18,8 +18,11 @@
                 <header></header>
                 <sheet>
                     <group>
+                        <field name="date_of_diagnosis"/>
                         <field name="name"/>
-
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="prescribe_treatment"/>
                     </group>
                 </sheet>
             </form>
@@ -38,5 +41,5 @@
               parent="hr_hospital_doctors_catalog_menu"
               name="Diagnosis"
               sequence="400"/>
-    
+
 </odoo>
