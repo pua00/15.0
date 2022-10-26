@@ -9,5 +9,5 @@ class Doctor(models.Model):
     _name = 'hr_hospital.doctor'
     _description = 'Doctor'
 
-    name = fields.Char()
-    profession = fields.Char()
+    name = fields.Char(string='Full name', required=True)
+    profession = fields.Char(string='Profession', required=True)
