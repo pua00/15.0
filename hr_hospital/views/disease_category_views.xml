@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_hr_hospital_disease_category_tree" model="ir.ui.view">
+        <field name="name">hr_hospital.disease_category.tree</field>
+        <field name="model">hr_hospital.disease_category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="complete_name"/>
+                <field name="disease_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_hospital_disease_category_form" model="ir.ui.view">
+        <field name="name">hr_hospital.disease_category.form</field>
+        <field name="model">hr_hospital.disease_category</field>
+        <field name="arch" type="xml">
+            <form>
+                    <header></header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="parent_id"/>
+                        </group>
+                    </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id="hr_hospital_disease_category_action" model="ir.actions.act_window">
+        <field name="name">Disease category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_hospital.disease_category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+     <menuitem id="hr_hospital_disease_category_menu"
+              action="hr_hospital_disease_category_action"
+              parent="hr_hospital_doctors_catalog_menu"
+              name="Disease category"
+              sequence="400"/>
+    
+</odoo>
+
+
+

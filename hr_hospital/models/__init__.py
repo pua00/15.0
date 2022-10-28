@@ -1,4 +1,7 @@
-from . import patient
-from . import doctor
-from . import diagnosis
-from . import  patient_card
+from . import (patient,
+               doctor,
+               diagnosis,
+               patient_card,
+               disease,
+               disease_category,
+               )

@@ -10,7 +10,7 @@
     'license': 'OPL-1',
     'version': '15.0.1.0.0',
 
-    'depends': ['base'],  # Якщо модуль, не має прямих залежностей, він повінен мати залежність від базового модуля "base".
+    'depends': ['base'],
     'external_dependencies': {'python': [], },
 
     'data': [
@@ -22,6 +22,8 @@
         'views/doctor_views.xml',
         'views/diagnosis_views.xml',
         'views/patient_card_views.xml',
+        'views/disease_views.xml',
+        'views/disease_category_views.xml',
 
     ],
     'demo': [],
