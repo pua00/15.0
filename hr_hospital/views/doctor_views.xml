@@ -16,14 +16,22 @@
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <form>
-                    <header></header>
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                            <field name="profession"/>
-                        </group>
-                    </sheet>
-                </form>
+                <header></header>
+                <sheet>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="profession"/>
+                        <field name="gender"/>
+                    </group>
+                    <group>
+                        <field name="phone"/>
+                        <field name="email"/>
+                    </group>
+
+                </sheet>
+            </form>
         </field>
     </record>
 
@@ -34,12 +42,12 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-     <menuitem id="hr_hospital_doctor_menu"
+    <menuitem id="hr_hospital_doctor_menu"
               action="hr_hospital_doctor_action"
               parent="hr_hospital_doctors_catalog_menu"
               name="Doctor"
               sequence="300"/>
-    
+
 </odoo>
 
 
