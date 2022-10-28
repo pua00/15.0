@@ -32,6 +32,7 @@
                         <field name="email"/>
                         <field name="passport_date"/>
                         <field name="contact_person"/>
+                        <field name="personal_doctor"/>
                     </group>
                 </sheet>
             </form>

@@ -17,7 +17,7 @@ class Patient(models.Model):
     passport_date = fields.Char(string='Passport date')
     contact_person = fields.Many2one(comodel_name='hr_hospital.contact_person', string='Person for contact')
     person_id = fields.Many2one(comodel_name='hr_hospital.person')
-
+    personal_doctor = fields.Many2one(comodel_name='hr_hospital.doctor', string='Person doctor')
 
     @api.depends('date_of_birth')
     def _computed_age(self):

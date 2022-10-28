@@ -5,4 +5,5 @@ from . import (patient,
                disease,
                disease_category,
                contact_person,
+               visit_doctor,
                )
