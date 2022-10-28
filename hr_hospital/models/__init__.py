@@ -4,4 +4,5 @@ from . import (patient,
                patient_card,
                disease,
                disease_category,
+               contact_person,
                )

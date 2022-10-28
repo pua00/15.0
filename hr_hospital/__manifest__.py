@@ -24,6 +24,7 @@
         'views/patient_card_views.xml',
         'views/disease_views.xml',
         'views/disease_category_views.xml',
+        'views/contact_person_views.xml',
 
     ],
     'demo': [],

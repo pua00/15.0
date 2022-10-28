@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_hr_hospital_contact_person_tree" model="ir.ui.view">
+        <field name="name">hr_hospital.contact_person.tree</field>
+        <field name="model">hr_hospital.contact_person</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_hospital_contact_person_form" model="ir.ui.view">
+        <field name="name">hr_hospital.contact_person.form</field>
+        <field name="model">hr_hospital.contact_person</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+
+                    <field name="photo" widget="image" class="oe_avatar"/>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="gender"/>
+                    </group>
+                    <group>
+                        <field name="phone"/>
+                        <field name="email"/>
+                    </group>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_hospital_contact_person_action" model="ir.actions.act_window">
+        <field name="name">Contact person</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_hospital.contact_person</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hr_hospital_contact_person_menu"
+              action="hr_hospital_contact_person_action"
+              parent="hr_hospital_doctors_catalog_menu"
+              name="Contact person"
+              sequence="400"/>
+
+</odoo>
+
+
+

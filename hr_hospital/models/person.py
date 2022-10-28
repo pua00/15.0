@@ -15,3 +15,5 @@ class Person(models.Model):
     phone = fields.Char(string='Phone')
     email = fields.Char(string='E-Mail')
     photo = fields.Image(string='Photo of person', max_width=512, max_height=512)
+
+    active = fields.Boolean(default=True)
