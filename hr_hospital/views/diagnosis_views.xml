@@ -22,7 +22,13 @@
                         <field name="name"/>
                         <field name="patient_id"/>
                         <field name="doctor_id"/>
+                        <field name="is_intern"/>
                         <field name="prescribe_treatment"/>
+
+                    </group>
+                    <group>
+                        <field name="doctor_mentor_id" attrs="{'invisible': [('is_intern', '=', False)]}"/>
+                        <field name="comment_doctor_mentor" attrs="{'invisible': [('is_intern', '=', False)]}"/>
                     </group>
                 </sheet>
             </form>

@@ -17,7 +17,7 @@ class Patient(models.Model):
     passport_date = fields.Char(string='Passport date')
     contact_person_id = fields.Many2one(comodel_name='hr_hospital.contact_person', string='Person for contact')
     person_id = fields.Many2one(comodel_name='hr_hospital.person')
-    personal_doctor_id = fields.Many2one(comodel_name='hr_hospital.doctor', compute='_on_change_personal_doctor', string='Person doctor')
+    personal_doctor_id = fields.Many2one(comodel_name='hr_hospital.doctor',  string='Person doctor')
 
     @api.depends('date_of_birth')
     def _computed_age(self):
@@ -28,6 +28,7 @@ class Patient(models.Model):
             else:
                 rec.age = 1
 
+    @api.onchange('personal_doctor_id')
     def _on_change_personal_doctor(self):
         print('При зміні персонального лікаря має автоматично створювати запис в історію призначення')
 

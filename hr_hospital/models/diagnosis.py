@@ -14,3 +14,7 @@ class Diagnosis(models.Model):
     patient_id = fields.Many2one('hr_hospital.patient', 'Patient', help='Select your patient', required=True)
     prescribe_treatment = fields.Text(string='Prescribe treatment')
     date_of_diagnosis = fields.Date(string='Date of diagnosis', default=fields.Date.today, required=True)
+    is_intern = fields.Boolean(string='This is doctor-intern', related='doctor_id.is_intern')
+    doctor_mentor_id = fields.Many2one('hr_hospital.doctor', string='Doctor-mentor',
+                                       related='doctor_id.doctor_mentor_id')
+    comment_doctor_mentor = fields.Text(string='Comment doctor-mentor', domain=[('is_intern', "=", False)])
