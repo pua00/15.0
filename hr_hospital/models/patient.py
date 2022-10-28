@@ -2,7 +2,7 @@ import logging
 
 from odoo import api, fields, models
 from datetime import date
-
+from . import person
 
 _logger = logging.getLogger(__name__)
 
@@ -10,13 +10,14 @@ _logger = logging.getLogger(__name__)
 class Patient(models.Model):
     _name = 'hr_hospital.patient'
     _description = 'Patient'
+    _inherit = {'hr_hospital.person': 'person_id'}
 
-    name = fields.Char(string='Full name', required=True)
-    gender = fields.Selection(string='Gender', selection=[('male', "Male"), ('femail', "Femail")], default='male', required=True)
     date_of_birth = fields.Date(string='Date of birth')
     age = fields.Integer(string='Age of patient', compute='_computed_age')
     passport_date = fields.Char(string='Passport date')
-    contact_person = fields.Char(string='Person for contact')
+    contact_person = fields.Many2one(comodel_name='hr_hospital.contact_person', string='Person for contact')
+    person_id = fields.Many2one(comodel_name='hr_hospital.person')
+
 
     @api.depends('date_of_birth')
     def _computed_age(self):

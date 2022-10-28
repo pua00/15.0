@@ -19,11 +19,17 @@
             <form>
                 <header></header>
                 <sheet>
+                    <field name="photo" widget="image" class="oe_avatar"/>
                     <group>
                         <field name="name"/>
                         <field name="gender"/>
                         <field name="date_of_birth"/>
                         <field name="age"/>
+                    </group>
+
+                    <group>
+                        <field name="phone"/>
+                        <field name="email"/>
                         <field name="passport_date"/>
                         <field name="contact_person"/>
                     </group>
@@ -45,5 +51,5 @@
               parent="hr_hospital_patients_catalog_menu"
               name="Patient"
               sequence="200"/>
-    
+
 </odoo>
