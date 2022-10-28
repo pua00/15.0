@@ -5,7 +5,7 @@ from odoo import fields, models
 _logger = logging.getLogger(__name__)
 
 
-class Doctor(models.Model):
+class VisitDoctor(models.Model):
     _name = 'hr_hospital.visit_doctor'
     _description = 'Visit doctor'
 

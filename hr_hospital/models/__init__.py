@@ -6,4 +6,5 @@ from . import (patient,
                disease_category,
                contact_person,
                visit_doctor,
+               personal_doctor_history,
                )
