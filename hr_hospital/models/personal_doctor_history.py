@@ -10,7 +10,7 @@ class PersonalDoctorHistory(models.Model):
     _description = 'Personal doctor history'
 
     name = fields.Char(string='Full name')
-    change_date = fields.Date(string='Date of change', index=True, required=True)
-    doctor_id = fields.Many2one('hr_hospital.doctor', 'Doctor', index=True, ondelete='cascade', required=True)
+    change_date = fields.Datetime(string='Date of change', index=True, required=True)
+    doctor_id = fields.Many2one('hr_hospital.doctor', 'Doctor', index=True, ondelete='cascade')
     patient_id = fields.Many2one('hr_hospital.patient', 'Patient', index=True, ondelete='cascade', required=True)
     active = fields.Boolean(default=True)

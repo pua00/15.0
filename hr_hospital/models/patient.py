@@ -1,7 +1,7 @@
 import logging
 
 from odoo import api, fields, models
-from datetime import date
+from datetime import date, datetime
 from . import person
 
 _logger = logging.getLogger(__name__)
@@ -17,7 +17,7 @@ class Patient(models.Model):
     passport_date = fields.Char(string='Passport date')
     contact_person_id = fields.Many2one(comodel_name='hr_hospital.contact_person', string='Person for contact')
     person_id = fields.Many2one(comodel_name='hr_hospital.person')
-    personal_doctor_id = fields.Many2one(comodel_name='hr_hospital.doctor',  string='Person doctor')
+    personal_doctor_id = fields.Many2one(comodel_name='hr_hospital.doctor', string='Person doctor')
 
     @api.depends('date_of_birth')
     def _computed_age(self):
@@ -28,7 +28,12 @@ class Patient(models.Model):
             else:
                 rec.age = 1
 
-    @api.onchange('personal_doctor_id')
-    def _on_change_personal_doctor(self):
-        print('При зміні персонального лікаря має автоматично створювати запис в історію призначення')
+     def write(self, vals):
+        patient = super(Patient, self).write(vals)
+        if 'personal_doctor_id' in vals:
+            doc_history = {'change_date': datetime.now(),
+                           'patient_id': self.id,
+                           'doctor_id': self.personal_doctor_id.id}
+            self.env['hr_hospital.personal_doctor_history'].create(doc_history)
 
+        return  patient

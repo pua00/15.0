@@ -21,6 +21,7 @@
                 <sheet>
                     <field name="photo" widget="image" class="oe_avatar"/>
                     <group>
+                        <field name="id"/>
                         <field name="name"/>
                         <field name="gender"/>
                         <field name="date_of_birth"/>
