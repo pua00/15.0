@@ -28,7 +28,7 @@ class Patient(models.Model):
             else:
                 rec.age = 1
 
-     def write(self, vals):
+    def write(self, vals):
         patient = super(Patient, self).write(vals)
         if 'personal_doctor_id' in vals:
             doc_history = {'change_date': datetime.now(),
@@ -36,4 +36,4 @@ class Patient(models.Model):
                            'doctor_id': self.personal_doctor_id.id}
             self.env['hr_hospital.personal_doctor_history'].create(doc_history)
 
-        return  patient
+        return patient

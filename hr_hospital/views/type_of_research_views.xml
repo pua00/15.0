@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_hr_hospital_type_of_research_tree" model="ir.ui.view">
+        <field name="name">hr_hospital.type_of_research.tree</field>
+        <field name="model">hr_hospital.type_of_research</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="category_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_hospital_type_of_research_form" model="ir.ui.view">
+        <field name="name">hr_hospital.type_of_research.form</field>
+        <field name="model">hr_hospital.type_of_research</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="category_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_hospital_type_of_research_action" model="ir.actions.act_window">
+        <field name="name">Type of research</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_hospital.type_of_research</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="hr_hospital_type_of_research_menu"
+              action="hr_hospital_type_of_research_action"
+              parent="hr_hospital_patients_catalog_menu"
+              name="Type of research"
+              sequence="800"/>
+
+</odoo>

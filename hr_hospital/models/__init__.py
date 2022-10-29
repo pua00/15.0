@@ -7,4 +7,6 @@ from . import (patient,
                contact_person,
                visit_doctor,
                personal_doctor_history,
+               type_of_research,
+               type_of_research_category,
                )
