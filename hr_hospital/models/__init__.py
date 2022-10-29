@@ -10,4 +10,5 @@ from . import (patient,
                type_of_research,
                type_of_research_category,
                type_of_sample,
+               research,
                )

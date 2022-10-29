@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_hr_hospital_research_tree" model="ir.ui.view">
+        <field name="name">hr_hospital.research.tree</field>
+        <field name="model">hr_hospital.research</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient_id"/>
+               <field name="doctor_id"/>
+               <field name="type_of_research_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_hospital_research_form" model="ir.ui.view">
+        <field name="name">hr_hospital.research.form</field>
+        <field name="model">hr_hospital.research</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="type_of_research_id"/>
+                        <field name="type_of_sample_id"/>
+                        <field name="conclusion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_hospital_research_action" model="ir.actions.act_window">
+        <field name="name">Research</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_hospital.research</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hr_hospital_research_menu"
+              action="hr_hospital_research_action"
+              parent="hr_hospital_doctors_catalog_menu"
+              name="Research"
+              sequence="900"/>
+
+</odoo>
+
+
+
