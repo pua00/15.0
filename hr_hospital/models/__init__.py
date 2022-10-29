@@ -9,4 +9,5 @@ from . import (patient,
                personal_doctor_history,
                type_of_research,
                type_of_research_category,
+               type_of_sample,
                )

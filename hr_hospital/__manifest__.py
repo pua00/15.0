@@ -27,7 +27,8 @@
         'views/contact_person_views.xml',
         'views/visit_doctor_views.xml',
         'views/personal_doctor_history_views.xml',
-        'views/type_of_research_views.xml'
+        'views/type_of_research_views.xml',
+        'views/type_of_sample_views.xml',
 
     ],
     'demo': [],
