@@ -6,8 +6,8 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="patient_id"/>
-               <field name="doctor_id"/>
-               <field name="type_of_research_id"/>
+                <field name="doctor_id"/>
+                <field name="type_of_research_id"/>
             </tree>
         </field>
     </record>

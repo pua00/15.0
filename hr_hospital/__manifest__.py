@@ -30,6 +30,7 @@
         'views/type_of_research_views.xml',
         'views/type_of_sample_views.xml',
         'views/research_views.xml',
+        'views/schedule_of_doctor_views.xml',
 
     ],
     'demo': [],

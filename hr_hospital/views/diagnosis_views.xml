@@ -24,7 +24,7 @@
                         <field name="doctor_id"/>
                         <field name="is_intern"/>
                         <field name="prescribe_treatment"/>
-
+                        <field name="research_id"/>
                     </group>
                     <group>
                         <field name="doctor_mentor_id" attrs="{'invisible': [('is_intern', '=', False)]}"/>

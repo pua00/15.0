@@ -11,4 +11,5 @@ from . import (patient,
                type_of_research_category,
                type_of_sample,
                research,
+               schedule_of_doctor,
                )
