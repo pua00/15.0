@@ -18,4 +18,5 @@ class Diagnosis(models.Model):
     doctor_mentor_id = fields.Many2one('hr_hospital.doctor', string='Doctor-mentor',
                                        related='doctor_id.doctor_mentor_id')
     comment_doctor_mentor = fields.Text(string='Comment doctor-mentor', domain=[('is_intern', "=", False)])
-    research_id = fields.Many2one('hr_hospital.research', 'Research', help='Select your research', create=False)
+    research_ids = fields.Many2many('hr_hospital.research', string='Researches')
+    active = fields.Boolean(default=True)
