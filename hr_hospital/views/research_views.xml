@@ -8,6 +8,7 @@
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
                 <field name="type_of_research_id"/>
+                <field name="visit_doctor_id"/>
             </tree>
         </field>
     </record>
@@ -25,6 +26,7 @@
                         <field name="type_of_research_id"/>
                         <field name="type_of_sample_id"/>
                         <field name="conclusion"/>
+                        <field name="visit_doctor_id"/>
                     </group>
                 </sheet>
             </form>

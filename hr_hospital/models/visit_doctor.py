@@ -15,3 +15,4 @@ class VisitDoctor(models.Model):
     diagnose = fields.Text(string='Diagnose of patient')
     recommendation = fields.Text(string='Recommendation')
     active = fields.Boolean(default=True)
+    research_ids = fields.Many2many('hr_hospital.research', string='Researches')

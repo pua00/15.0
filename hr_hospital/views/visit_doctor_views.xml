@@ -17,7 +17,6 @@
         <field name="model">hr_hospital.visit_doctor</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
                 <sheet>
                     <group>
                         <field name="visit_time"/>
@@ -25,13 +24,16 @@
                         <field name="patient_id"/>
                         <field name="diagnose"/>
                         <field name="recommendation"/>
-
+                    </group>
+                    <group>
+                        <field name="research_ids"/>
                     </group>
 
                 </sheet>
             </form>
         </field>
     </record>
+
 
     <record id="hr_hospital_visit_doctor_action" model="ir.actions.act_window">
         <field name="name">Visit_doctor</field>
