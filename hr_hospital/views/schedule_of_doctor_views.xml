@@ -8,8 +8,7 @@
                 <field name="name"/>
                 <field name="doctor_id"/>
                 <field name="visit_date"/>
-                <field name="visit_from_date"/>
-                <field name="visit_to_date"/>
+                <field name="visit_start_datetime"/>
             </tree>
         </field>
     </record>
@@ -25,8 +24,7 @@
                         <field name="name"/>
                         <field name="doctor_id"/>
                         <field name="visit_date"/>
-                        <field name="visit_from_date"/>
-                        <field name="visit_to_date"/>
+                        <field name="visit_start_datetime"/>
                     </group>
                 </sheet>
             </form>
