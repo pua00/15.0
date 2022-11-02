@@ -22,11 +22,15 @@ class ScheduleOfDoctor(models.Model):
         return [(tag.id, '{}: {}'.format(tag.doctor_id.name or "",
                                          tag.visit_start_datetime or "")) for tag in self]
 
-    @api.constrains('doctor_id, visit_start_datetime')
-    def _check_existing_record(self):
-        records = self.search([('visit_start_datetime', '=', self.visit_start_datetime),
-                               ('doctor_id', '=', self.doctor_id.id)])
-        _logger.debug('sizes---', len(records))
-        if len(records) > 0:
-            raise exceptions.ValidationError(_('{} This date for {} is busy'.format(self.visit_start_datetime,
-                                                                                    self.doctor_id.name)))
+    @api.constrains('visit_start_datetime', 'doctor_id')
+    def check_existing_record(self):
+        _logger.info("This")
+        for rec in self:
+            records = self.search([('visit_start_datetime', '=', rec.visit_start_datetime),
+                                   ('doctor_id', '=', rec.doctor_id.id),
+                                   ('id', '!=', rec.id)])
+            _logger.debug('sizes---', len(records))
+            if len(records) > 0:
+                raise exceptions.ValidationError(_('{} This date for {} is busy'.format(rec.visit_start_datetime,
+                                                                                        rec.doctor_id.name)))
+#
