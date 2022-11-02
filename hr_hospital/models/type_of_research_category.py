@@ -1,7 +1,7 @@
 import logging
 from odoo.exceptions import ValidationError
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 _logger = logging.getLogger(__name__)
 
@@ -14,17 +14,24 @@ class TypeOfResearchCategory(models.Model):
     _rec_name = 'complete_name'
     _order = 'complete_name'
 
-    name = fields.Char('Name', index=True, required=True)
-    complete_name = fields.Char(
-        'Complete Name', compute='_compute_complete_name', recursive=True,
-        store=True)
-    parent_id = fields.Many2one('hr_hospital.type_of_research_category', 'Type of reserch Category', index=True,
+    name = fields.Char(string='Name',
+                       index=True,
+                       required=True)
+    complete_name = fields.Char(string='Complete Name',
+                                compute='_compute_complete_name',
+                                recursive=True,
+                                store=True)
+    parent_id = fields.Many2one(comodel_name='hr_hospital.type_of_research_category',
+                                string='Type of research Category',
+                                index=True,
                                 ondelete='cascade')
     parent_path = fields.Char(index=True)
-    child_id = fields.One2many('hr_hospital.type_of_research_category', 'parent_id', 'Child Categories')
-    type_of_research_count = fields.Integer(
-        '# Disease', compute='_compute_type_of_research_count',
-        help="The number of type of research under this category (Does not consider the children categories)")
+    child_id = fields.One2many(comodel_name='hr_hospital.type_of_research_category',
+                               inverse_name='parent_id',
+                               string='Child Categories')
+    type_of_research_count = fields.Integer(string='# Disease',
+                                            compute='_compute_type_of_research_count',
+                                            help="The number of type of research under this category")
     active = fields.Boolean(default=True)
 
     @api.depends('name', 'parent_id.complete_name')
