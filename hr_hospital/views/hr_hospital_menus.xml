@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-  <menuitem id="hr_hospital_main_menu"
-            web_icon="hr_hospital,static/description/icon.png"
-            name="Hospital"
-            sequence="300" />
+    <menuitem id="hr_hospital_main_menu"
+              web_icon="hr_hospital,static/description/icon.png"
+              name="Hospital"
+              sequence="300"/>
 
-  <menuitem id="hr_hospital_patients_catalog_menu"
-            parent="hr_hospital_main_menu"
-            name="Patients"
-            sequence="100"/>
+    <menuitem id="hr_hospital_patient_catalog_menu"
+              parent="hr_hospital_main_menu"
+              name="Patient"
+              sequence="100"/>
 
-    <menuitem id="hr_hospital_doctors_catalog_menu"
-            parent="hr_hospital_main_menu"
-            name="Doctors"
-            sequence="200"/>
+    <menuitem id="hr_hospital_doctor_catalog_menu"
+              parent="hr_hospital_main_menu"
+              name="Doctor"
+              sequence="200"/>
 
+    <menuitem id="hr_hospital_visits_catalog_menu"
+              parent="hr_hospital_main_menu"
+              name="Visit"
+              sequence="300"/>
 
-</odoo>  <!-- Потрібно залишати один порожній рядок у кінці всіх файлів. -->
+    <menuitem id="hr_hospital_other_catalog_menu"
+              parent="hr_hospital_main_menu"
+              name="Other"
+              sequence="400"/>
+
+</odoo>

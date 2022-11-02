@@ -24,6 +24,7 @@
                         <field name="patient_id"/>
                         <field name="diagnose"/>
                         <field name="recommendation"/>
+                        <field name="visit_status"/>
                     </group>
                     <group>
                         <field name="research_ids"/>
@@ -45,7 +46,7 @@
 
     <menuitem id="hr_hospital_visit_doctor_menu"
               action="hr_hospital_visit_doctor_action"
-              parent="hr_hospital_patients_catalog_menu"
+              parent="hr_hospital_doctor_catalog_menu"
               name="Visit doctor"
               sequence="600"/>
 

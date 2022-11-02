@@ -38,8 +38,8 @@
 
     <menuitem id="hr_hospital_personal_doctor_history_menu"
               action="hr_hospital_personal_doctor_history_action"
-              parent="hr_hospital_doctors_catalog_menu"
+              parent="hr_hospital_doctor_catalog_menu"
               name="Personal doctor history"
-              sequence="600"/>
+              sequence="200"/>
 
 </odoo>

@@ -21,7 +21,6 @@
         'views/patient_views.xml',
         'views/doctor_views.xml',
         'views/diagnosis_views.xml',
-        'views/patient_card_views.xml',
         'views/disease_views.xml',
         'views/disease_category_views.xml',
         'views/contact_person_views.xml',

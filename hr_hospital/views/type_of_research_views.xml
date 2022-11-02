@@ -37,7 +37,7 @@
 
     <menuitem id="hr_hospital_type_of_research_menu"
               action="hr_hospital_type_of_research_action"
-              parent="hr_hospital_patients_catalog_menu"
+              parent="hr_hospital_other_catalog_menu"
               name="Type of research"
               sequence="800"/>
 

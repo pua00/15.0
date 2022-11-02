@@ -37,3 +37,5 @@ class Patient(models.Model):
             self.env['hr_hospital.personal_doctor_history'].create(doc_history)
 
         return patient
+
+

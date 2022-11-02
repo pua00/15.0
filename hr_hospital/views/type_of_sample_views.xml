@@ -34,7 +34,7 @@
 
      <menuitem id="hr_hospital_type_of_sample_menu"
               action="hr_hospital_type_of_sample_action"
-              parent="hr_hospital_doctors_catalog_menu"
+              parent="hr_hospital_other_catalog_menu"
               name="Type of sample"
               sequence="600"/>
     

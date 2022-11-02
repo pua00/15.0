@@ -46,8 +46,8 @@
 
     <menuitem id="hr_hospital_diagnosis_menu"
               action="hr_hospital_diagnosis_action"
-              parent="hr_hospital_doctors_catalog_menu"
+              parent="hr_hospital_patient_catalog_menu"
               name="Diagnosis"
-              sequence="400"/>
+              sequence="200"/>
 
 </odoo>

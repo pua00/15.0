@@ -50,8 +50,8 @@
 
     <menuitem id="hr_hospital_patient_menu"
               action="hr_hospital_patient_action"
-              parent="hr_hospital_patients_catalog_menu"
-              name="Patient"
-              sequence="200"/>
+              parent="hr_hospital_patient_catalog_menu"
+              name="Patients"
+              sequence="100"/>
 
 </odoo>

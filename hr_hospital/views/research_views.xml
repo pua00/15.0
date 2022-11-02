@@ -42,9 +42,9 @@
 
     <menuitem id="hr_hospital_research_menu"
               action="hr_hospital_research_action"
-              parent="hr_hospital_doctors_catalog_menu"
+              parent="hr_hospital_patient_catalog_menu"
               name="Research"
-              sequence="900"/>
+              sequence="300"/>
 
 </odoo>
 

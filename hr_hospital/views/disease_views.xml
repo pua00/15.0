@@ -36,9 +36,9 @@
 
      <menuitem id="hr_hospital_disease_menu"
               action="hr_hospital_disease_action"
-              parent="hr_hospital_doctors_catalog_menu"
+              parent="hr_hospital_other_catalog_menu"
               name="Disease"
-              sequence="500"/>
+              sequence="200"/>
     
 </odoo>
 

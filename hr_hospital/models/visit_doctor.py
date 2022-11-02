@@ -16,3 +16,6 @@ class VisitDoctor(models.Model):
     recommendation = fields.Text(string='Recommendation')
     active = fields.Boolean(default=True)
     research_ids = fields.Many2many('hr_hospital.research', string='Researches')
+    visit_status = fields.Selection(string='Visit status',
+                                    selection=[('plan', "Plan"), ('done', "Done"), ('cancel', "Cancel")],
+                                    default='plan', required=True)
