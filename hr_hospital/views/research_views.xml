@@ -5,10 +5,10 @@
         <field name="model">hr_hospital.research</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="research_date"/>
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
                 <field name="type_of_research_id"/>
-                <field name="visit_doctor_id"/>
             </tree>
         </field>
     </record>
@@ -21,12 +21,12 @@
                 <header></header>
                 <sheet>
                     <group>
+                        <field name="research_date"/>
                         <field name="patient_id"/>
                         <field name="doctor_id"/>
                         <field name="type_of_research_id"/>
                         <field name="type_of_sample_id"/>
                         <field name="conclusion"/>
-                        <field name="visit_doctor_id"/>
                     </group>
                 </sheet>
             </form>

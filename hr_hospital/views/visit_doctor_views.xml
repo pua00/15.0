@@ -17,17 +17,38 @@
         <field name="model">hr_hospital.visit_doctor</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="action_set_status_plan"
+                            string="Set Plan"
+                            type="object"
+                            attrs="{'invisible': [('state', '=', 'plan')]}"/>
+                    <button name="action_set_status_done"
+                            string="Set Done"
+                            type="object"
+                            attrs="{'invisible': [('state', '=', 'done')]}"
+                            class="oe_highlight"/>
+                    <button name="action_set_status_cancel"
+                            string="Set Cancel"
+                            type="object"
+                            attrs="{'invisible': [('state', '=', 'cancel')]}"
+                            class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="plan,done"/>
+                </header>
                 <sheet>
                     <group>
-                        <field name="visit_time"/>
-                        <field name="doctor_id"/>
-                        <field name="patient_id"/>
-                        <field name="diagnose"/>
+                        <field name="visit_time"
+                               attrs="{'readonly':[('state', '!=', 'plan')]}"/>
+                        <field name="doctor_id"
+                               attrs="{'readonly':[('state', '!=', 'plan')]}"/>
+                        <field name="patient_id"
+                               attrs="{'readonly':[('state', '!=', 'plan')]}"/>
+                        <field name="diagnosis_id"/>
                         <field name="recommendation"/>
-                        <field name="visit_status"/>
                     </group>
                     <group>
-                        <field name="research_ids"/>
+                        <field name="research_ids"
+                               domain="[('patient_id', '=', patient_id),('doctor_id', '=', doctor_id)]"
+                               attrs="{'readonly':[('state', '!=', 'plan')]}"/>
                     </group>
 
                 </sheet>

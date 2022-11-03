@@ -14,6 +14,6 @@ class PersonalDoctorHistory(models.Model):
     patient_id = fields.Many2one('hr_hospital.patient', 'Patient', index=True, ondelete='cascade', required=True)
 
     def name_get(self):
-        return [(tag.id, '{}: {} = > {}'.format(self.change_date or "",
-                                                tag.doctor_id.name or "",
-                                                tag.patient_id.name or "")) for tag in self]
+        return [(tag.id, 'Doc history {}: {} = > {}'.format(self.change_date or "",
+                                                            tag.doctor_id.name or "",
+                                                            tag.patient_id.name or "")) for tag in self]
