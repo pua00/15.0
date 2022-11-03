@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_change_doctor_multy_wizard_form" model="ir.ui.view">
+        <field name="name">change_doctor_multy_wizard.form</field>
+        <field name="model">change_doctor_multy_wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="oe_title">
+                    <h2>Change doctor</h2>
+                </div>
+
+                <group>
+                    <field name="doctor_id"/>
+                </group>
+
+                <footer>
+                    <button name="action_start_wizard"
+                            string="Change doctor"
+                            type="object"
+                            icon="fa-plus"
+                            class="btn-primary"/>
+
+                    <button string="Close"
+                            special="cancel"
+                            class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -5,9 +5,15 @@
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
+                <header>
+                    <button name="action_open_change_doctor_multy_wizard"
+                            string="Change personal doctor (wizard)"
+                            type="object"/>
+                </header>
                 <field name="name"/>
                 <field name="gender"/>
                 <field name="age"/>
+                <field name="personal_doctor_id"/>
             </tree>
         </field>
     </record>

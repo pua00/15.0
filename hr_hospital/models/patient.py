@@ -1,6 +1,6 @@
 import logging
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 from datetime import date, datetime
 from . import person
 
@@ -41,4 +41,14 @@ class Patient(models.Model):
 
         return patient
 
+    def action_open_change_doctor_multy_wizard(self):
+        # print('this action_open_wizard')
+        return {
+            'name': _('Wizard for easy way to change doctor'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'change_doctor_multy_wizard',
+            'target': 'new',
+            # 'context': {'default_doctor_id': self.doctor_id}
+        }
 
