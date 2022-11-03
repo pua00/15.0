@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_change_doctor_multy_wizard_form" model="ir.ui.view">
+        <field name="name">create_doctor_schedule_wizard.form</field>
+        <field name="model">create_doctor_schedule_wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="oe_title">
+                    <h2>Create doctor schedules</h2>
+                </div>
+
+                <group>
+                    <field name="doctor_id"/>
+                    <field name="week_type"/>
+                </group>
+
+                <group>
+                    <group>
+                        <field name="start_week_day"/>
+                        <field name="finish_week_day"/>
+                    </group>
+                    <group>
+                        <field name="time_start_job"/>
+                        <field name="time_finish_job"/>
+                        <field name="interval_for_visit"/>
+                    </group>
+                </group>
+
+                <footer>
+
+
+                    <button name="action_start_wizard"
+                            string="Create schedules"
+                            type="object"
+                            icon="fa-plus"
+                            class="btn-primary"/>
+
+                    <button string="Close"
+                            special="cancel"
+                            class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="create_doctor_schedule_wizard_action" model="ir.actions.server">
+        <field name="name">Create doctor schedule wizard</field>
+        <field name="model_id" ref="model_create_doctor_schedule_wizard"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_open_wizard()
+        </field>
+    </record>
+
+
+    <menuitem id="create_doctor_schedule_wizard_menu"
+              action="create_doctor_schedule_wizard_action"
+              parent="hr_hospital_hospital_catalog_menu"
+              name="Create doctor schedule wizard"
+              sequence="100"/>
+
+</odoo>

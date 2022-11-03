@@ -13,16 +13,6 @@ class ChangeDoctorMultyWizard(models.TransientModel):
                                 string='Doctor',
                                 required=True)
 
-    def action_open_wizard(self):
-        # print('this action_open_wizard')
-        return {
-            'name': _('Wizard for easy way to change doctor'),
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'res_model': 'change_doctor_multy_wizard',
-            'target': 'new',
-        }
-
     def action_start_wizard(self):
         records = self.env.context["active_ids"]
         patients = self.env['hr_hospital.patient']
@@ -31,3 +21,12 @@ class ChangeDoctorMultyWizard(models.TransientModel):
             for rec in records:
                 el_patient = patients.browse(rec)
                 el_patient.write(info_for_change)
+
+    def action_open_wizard(self):
+        return {
+            'name': _('Wizard for easy way to change doctor'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'change_doctor_multy_wizard',
+            'target': 'new',
+        }

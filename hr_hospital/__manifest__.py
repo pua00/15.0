@@ -17,6 +17,7 @@
 
         'security/ir.model.access.csv',
         'wizard/change_doctor_multy_wizard_views.xml',
+        'wizard/create_doctor_schedule_wizard_views.xml',
         'views/hr_hospital_menus.xml',
         'views/patient_views.xml',
         'views/doctor_views.xml',

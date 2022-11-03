@@ -21,9 +21,15 @@
               name="Visit"
               sequence="300"/>
 
+    <menuitem id="hr_hospital_hospital_catalog_menu"
+              parent="hr_hospital_main_menu"
+              name="Hospital"
+              sequence="400"/>
+
+
     <menuitem id="hr_hospital_other_catalog_menu"
               parent="hr_hospital_main_menu"
               name="Other"
-              sequence="400"/>
+              sequence="500"/>
 
 </odoo>
