@@ -33,4 +33,3 @@ class ScheduleOfDoctor(models.Model):
             if len(records) > 0:
                 raise exceptions.ValidationError(_('{} This date for {} is busy'.format(rec.visit_start_datetime,
                                                                                         rec.doctor_id.name)))
-#

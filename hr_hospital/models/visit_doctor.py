@@ -12,7 +12,7 @@ class VisitDoctor(models.Model):
 
     def _get_research_domain(self):
         for rec in self:
-            print(rec.patient_id)
+            # print(rec.patient_id)
             return [('patient_id', 'in', rec.patient_id)]
 
     visit_time = fields.Datetime(string='Visit time',
@@ -38,6 +38,8 @@ class VisitDoctor(models.Model):
                                         ('done', "Done"),
                                         ('cancel', "Cancel")],
                              default='plan', required=True)
+    schedule_of_doctor_id = fields.Many2one(comodel_name='hr_hospital.schedule_of_doctor',
+                                            string='Schedule of Doctor')
 
     def action_set_status_plan(self):
         for rec in self:
@@ -62,3 +64,33 @@ class VisitDoctor(models.Model):
         return [(tag.id, 'Visit {}: {} = > {}'.format(self.visit_time or "",
                                                       tag.doctor_id.name or "",
                                                       tag.patient_id.name or "")) for tag in self]
+
+    def action_change_visit_to_doctor_wizard(self):
+        # print('this change_visit_to_doctor_wizard')
+        # print(self.env.context)
+
+        if len(self.env.context['active_ids']) != 1:
+            # print("len(self.env.context[active_ids]) != 1")
+            raise UserError(_('May select only ONE visit'))
+
+        current_visit = self.env['hr_hospital.visit_doctor'].browse(self.env.context['active_id'])
+        if current_visit.state != 'plan':
+            # print("current_visit.state != plan")
+            raise UserError(_('May select visit in state ONLY plan'))
+
+        # print(current_visit.id)
+
+        return {
+            'name': _('Wizard for easy way to Change visit to doctor'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'change_visit_to_doctor_wizard',
+            'target': 'new',
+            'context': {
+                'default_old_doctor_id': current_visit.doctor_id.id,
+                'default_old_visit_date': current_visit.schedule_of_doctor_id.visit_date,
+                'default_visit_date': current_visit.schedule_of_doctor_id.visit_date,
+                'default_visit_doctor_id': current_visit.id,
+                'default_old_schedule_of_doctor_id': current_visit.schedule_of_doctor_id.id,
+            }
+        }

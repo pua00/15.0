@@ -5,9 +5,15 @@
         <field name="model">hr_hospital.visit_doctor</field>
         <field name="arch" type="xml">
             <tree>
+                <header>
+                    <button name="action_change_visit_to_doctor_wizard"
+                            string="Change personal doctor (wizard)"
+                            type="object"/>
+                </header>
                 <field name="visit_time"/>
                 <field name="doctor_id"/>
                 <field name="patient_id"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
@@ -43,6 +49,7 @@
                         <field name="patient_id"
                                attrs="{'readonly':[('state', '!=', 'plan')]}"/>
                         <field name="diagnosis_id"/>
+                        <field name="schedule_of_doctor_id"/>
                         <field name="recommendation"/>
                     </group>
                     <group>
