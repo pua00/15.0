@@ -1,7 +1,6 @@
 import logging
 
 from odoo import fields, models
-from . import person
 
 _logger = logging.getLogger(__name__)
 
@@ -13,8 +12,7 @@ class Doctor(models.Model):
 
     person_id = fields.Many2one(comodel_name='hr_hospital.person',
                                 string='Person')
-    profession = fields.Char(string='Profession',
-                             required=True)
+    profession = fields.Char(required=True)
     is_intern = fields.Boolean(string='This is doctor-intern')
     doctor_mentor_id = fields.Many2one(comodel_name='hr_hospital.doctor',
                                        string='Doctor (as mentor)',

@@ -11,10 +11,10 @@ class Disease(models.Model):
 
     name = fields.Char(string='Disease',
                        required=True)
-    category_id = fields.Many2one(comodel_name='hr_hospital.disease_category',
-                                  string='Disease Category',
-                                  index=True,
-                                  ondelete='cascade',
-                                  required=True)
+    category_id = fields.Many2one(
+        comodel_name='hr_hospital.disease_category',
+        string='Disease Category',
+        index=True,
+        ondelete='cascade',
+        required=True)
     active = fields.Boolean(default=True)
-

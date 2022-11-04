@@ -11,9 +11,10 @@ class TypeOfResearch(models.Model):
 
     name = fields.Char(string='Type of research',
                        required=True)
-    category_id = fields.Many2one(comodel_name='hr_hospital.type_of_research_category',
-                                  string='Type of research Category',
-                                  index=True,
-                                  ondelete='cascade',
-                                  required=True)
+    category_id = fields.Many2one(
+        comodel_name='hr_hospital.type_of_research_category',
+        string='Type of research Category',
+        index=True,
+        ondelete='cascade',
+        required=True)
     active = fields.Boolean(default=True)

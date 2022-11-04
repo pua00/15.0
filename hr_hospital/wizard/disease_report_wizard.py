@@ -1,7 +1,7 @@
 import logging
 
-from odoo import api, fields, models, _
 from datetime import date
+from odoo import api, fields, models, _
 
 _logger = logging.getLogger(__name__)
 
@@ -15,7 +15,7 @@ class DiseaseReportWizard(models.TransientModel):
         year = date.today().year
         start_year = year - 10
         year_list = []
-        while year >= start_year:  # replace 2030 with your end year
+        while year >= start_year:
             year_list.append((str(start_year), str(start_year)))
             start_year += 1
         return year_list
@@ -23,6 +23,7 @@ class DiseaseReportWizard(models.TransientModel):
     @api.model
     def month_selection(self):
         month_list = []
+
         month_list.append(('1', 'January'))
         month_list.append(('2', 'February'))
         month_list.append(('3', 'March'))
@@ -38,17 +39,17 @@ class DiseaseReportWizard(models.TransientModel):
 
         return month_list
 
-    year = fields.Selection(string='Year',
-                            selection=year_selection,
+    year = fields.Selection(selection=year_selection,
                             default='2022', required=True)
-    month = fields.Selection(string='month',
-                            selection=month_selection,
-                            default='1', required=True)
+    month = fields.Selection(selection=month_selection,
+                             default='1', required=True)
 
-    def action_start_wizard(self):
-        print('This is report')
+    @staticmethod
+    def action_start_wizard():
+        pass
 
-    def action_open_wizard(self):
+    @staticmethod
+    def action_open_wizard():
         return {
             'name': _('Disease report wizard'),
             'type': 'ir.actions.act_window',

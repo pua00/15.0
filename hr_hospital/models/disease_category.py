@@ -1,7 +1,7 @@
 import logging
 from odoo.exceptions import ValidationError
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 _logger = logging.getLogger(__name__)
 
@@ -14,8 +14,7 @@ class DiseaseCategory(models.Model):
     _rec_name = 'complete_name'
     _order = 'complete_name'
 
-    name = fields.Char(string='Name',
-                       index=True,
+    name = fields.Char(index=True,
                        required=True)
     complete_name = fields.Char(comodel_name='Complete Name',
                                 compute='_compute_complete_name',
@@ -29,22 +28,25 @@ class DiseaseCategory(models.Model):
     child_ids = fields.One2many(comodel_name='hr_hospital.disease_category',
                                 inverse_name='parent_id',
                                 string='Child Categories')
-    disease_count = fields.Integer(string='# Disease',
-                                   compute='_compute_disease_count',
-                                   help="The number of disease under this category")
+    disease_count = fields.Integer(
+        string='# Disease',
+        compute='_compute_disease_count',
+        help="The number of disease under this category")
     active = fields.Boolean(default=True)
 
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):
         for category in self:
             if category.parent_id:
-                category.complete_name = '%s / %s' % (category.parent_id.complete_name, category.name)
+                category.complete_name = '%s / %s' % (
+                    category.parent_id.complete_name, category.name)
             else:
                 category.complete_name = category.name
 
     def _compute_disease_count(self):
         for obj in self:
-            obj.disease_count = self.env['hr_hospital.disease'].search_count([('category_id', 'child_of', obj.id)])
+            obj.disease_count = self.env['hr_hospital.disease'].search_count(
+                [('category_id', 'child_of', obj.id)])
 
     @api.constrains('parent_id')
     def _check_category_recursion(self):

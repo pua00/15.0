@@ -17,11 +17,8 @@
         <field name="model">hr_hospital.contact_person</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
                 <sheet>
-
                     <field name="photo" widget="image" class="oe_avatar"/>
-
                     <group>
                         <field name="name"/>
                         <field name="gender"/>
@@ -30,8 +27,6 @@
                         <field name="phone"/>
                         <field name="email"/>
                     </group>
-
-
                 </sheet>
             </form>
         </field>
@@ -51,6 +46,3 @@
               sequence="100"/>
 
 </odoo>
-
-
-

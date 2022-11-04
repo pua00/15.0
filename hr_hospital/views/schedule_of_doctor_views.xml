@@ -17,7 +17,6 @@
         <field name="model">hr_hospital.schedule_of_doctor</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
                 <sheet>
                     <group>
                         <field name="doctor_id"/>

@@ -21,27 +21,29 @@ class ChangeVisitToDoctorWizard(models.TransientModel):
                                  required=True,
                                  readonly=True,
                                  index=True)
-    old_schedule_of_doctor_id = fields.Many2one(comodel_name='hr_hospital.schedule_of_doctor',
-                                                string='Old Schedule of Doctor',
-                                                readonly=True,
-                                                required=True)
+    old_schedule_of_doctor_id = fields.Many2one(
+        comodel_name='hr_hospital.schedule_of_doctor',
+        string='Old Schedule of Doctor',
+        readonly=True,
+        required=True)
     doctor_id = fields.Many2one(comodel_name='hr_hospital.doctor',
                                 string='New Doctor',
                                 required=True)
     visit_date = fields.Date(string='New Visit date',
                              required=True,
                              index=True)
-    schedule_of_doctor_id = fields.Many2one(comodel_name='hr_hospital.schedule_of_doctor',
-                                            string='New Schedule of Doctor',
-                                            required=True)
+    schedule_of_doctor_id = fields.Many2one(
+        comodel_name='hr_hospital.schedule_of_doctor',
+        string='New Schedule of Doctor',
+        required=True)
 
     def action_start_wizard(self):
-        # print('action_start_wizard')
         record = self.env.context["active_id"]
         visit = self.env['hr_hospital.visit_doctor']
-        info_for_change = {'doctor_id': self.doctor_id,
-                           'schedule_of_doctor_id': self.schedule_of_doctor_id,
-                           'visit_time': self.schedule_of_doctor_id.visit_start_datetime}
+        info_for_change = {
+            'doctor_id': self.doctor_id,
+            'schedule_of_doctor_id': self.schedule_of_doctor_id,
+            'visit_time': self.schedule_of_doctor_id.visit_start_datetime}
         if record:
             el_visit = visit.browse(record)
             el_visit.write(info_for_change)

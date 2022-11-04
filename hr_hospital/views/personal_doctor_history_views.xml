@@ -17,7 +17,6 @@
         <field name="model">hr_hospital.personal_doctor_history</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
                 <sheet>
                     <group>
                         <field name="change_date"/>

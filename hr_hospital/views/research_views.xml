@@ -18,7 +18,6 @@
         <field name="model">hr_hospital.research</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
                 <sheet>
                     <group>
                         <field name="research_date"/>

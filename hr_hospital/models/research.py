@@ -19,16 +19,19 @@ class Research(models.Model):
     doctor_id = fields.Many2one(comodel_name='hr_hospital.doctor',
                                 string='Doctor',
                                 required=True)
-    type_of_research_id = fields.Many2one(comodel_name='hr_hospital.type_of_research',
-                                          string='Research',
-                                          required=True)
-    type_of_sample_id = fields.Many2one(comodel_name='hr_hospital.type_of_sample',
-                                        string='Samples', )
-    conclusion = fields.Text(string='Conclusion')
+    type_of_research_id = fields.Many2one(
+        comodel_name='hr_hospital.type_of_research',
+        string='Research',
+        required=True)
+    type_of_sample_id = fields.Many2one(
+        comodel_name='hr_hospital.type_of_sample',
+        string='Samples', )
+    conclusion = fields.Text()
 
     active = fields.Boolean(default=True)
 
     def name_get(self):
-        return [(tag.id, 'Research {}: {} = > {}'.format(self.research_date or "",
-                                                         tag.doctor_id.name or "",
-                                                         tag.patient_id.name or "")) for tag in self]
+        return [(tag.id, 'Research {}: {} = > {}'
+                 .format(self.research_date or "",
+                         tag.doctor_id.name or "",
+                         tag.patient_id.name or "")) for tag in self]

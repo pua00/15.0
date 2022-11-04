@@ -1,8 +1,8 @@
 import logging
 
-from odoo import api, fields, models, _
 from datetime import date, datetime
-from . import person
+from odoo import api, fields, models, _
+
 
 _logger = logging.getLogger(__name__)
 
@@ -14,16 +14,17 @@ class Patient(models.Model):
 
     date_of_birth = fields.Date(string='Date of birth')
     age = fields.Integer(string='Age of patient',
-                         compute='_computed_age')
+                         compute='_compute_age')
     passport_date = fields.Char(string='Passport date')
-    contact_person_id = fields.Many2one(comodel_name='hr_hospital.contact_person',
-                                        string='Person for contact')
+    contact_person_id = fields.Many2one(
+        comodel_name='hr_hospital.contact_person',
+        string='Person for contact')
     person_id = fields.Many2one(comodel_name='hr_hospital.person')
     personal_doctor_id = fields.Many2one(comodel_name='hr_hospital.doctor',
                                          string='Person doctor')
 
     @api.depends('date_of_birth')
-    def _computed_age(self):
+    def _compute_age(self):
         today = date.today()
         for rec in self:
             if rec.date_of_birth:
@@ -41,14 +42,12 @@ class Patient(models.Model):
 
         return patient
 
-    def action_open_change_doctor_multy_wizard(self):
-        # print('this action_open_wizard')
+    @staticmethod
+    def action_open_change_doctor_multy_wizard():
         return {
             'name': _('Wizard for easy way to change doctor'),
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
             'res_model': 'change_doctor_multy_wizard',
             'target': 'new',
-            # 'context': {'default_doctor_id': self.doctor_id}
         }
-

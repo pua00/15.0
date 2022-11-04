@@ -1,8 +1,8 @@
 import logging
 
+from datetime import datetime, timedelta
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
-from datetime import date, datetime, timedelta
 
 _logger = logging.getLogger(__name__)
 
@@ -57,8 +57,10 @@ class CreateDoctorScheduleWizard(models.TransientModel):
         d_year = self.start_week_day.year
 
         while d_day < self.finish_week_day.day:
-            t_min = datetime(d_year, d_month, d_day) + timedelta(hours=self.time_start_job)
-            t_max = datetime(d_year, d_month, d_day) + timedelta(hours=self.time_finish_job)
+            t_delta_start = timedelta(hours=self.time_start_job)
+            t_delta_finish = timedelta(hours=self.time_finish_job)
+            t_min = datetime(d_year, d_month, d_day) + t_delta_start
+            t_max = datetime(d_year, d_month, d_day) + t_delta_finish
 
             while t_min < t_max:
                 obj = {'doctor_id': self.doctor_id.id,
@@ -70,7 +72,8 @@ class CreateDoctorScheduleWizard(models.TransientModel):
 
         self.env['hr_hospital.schedule_of_doctor'].create(recs)
 
-    def action_open_wizard(self):
+    @staticmethod
+    def action_open_wizard():
         return {
             'name': _('Create doctor schedule wizard'),
             'type': 'ir.actions.act_window',

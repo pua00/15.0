@@ -17,7 +17,6 @@
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
                 <sheet>
                     <field name="photo" widget="image" class="oe_avatar"/>
 
@@ -30,7 +29,7 @@
                     <group>
                         <field name="is_intern"/>
                         <field name="doctor_mentor_id"
-                                       attrs="{'invisible': [('is_intern', '=', False)]}"/>
+                               attrs="{'invisible': [('is_intern', '=', False)]}"/>
                     </group>
                 </sheet>
             </form>

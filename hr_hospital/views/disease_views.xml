@@ -16,14 +16,13 @@
         <field name="model">hr_hospital.disease</field>
         <field name="arch" type="xml">
             <form>
-                    <header></header>
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                            <field name="category_id"/>
-                        </group>
-                    </sheet>
-                </form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="category_id"/>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 
@@ -34,12 +33,12 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-     <menuitem id="hr_hospital_disease_menu"
+    <menuitem id="hr_hospital_disease_menu"
               action="hr_hospital_disease_action"
               parent="hr_hospital_other_catalog_menu"
               name="Disease"
               sequence="200"/>
-    
+
 </odoo>
 
 

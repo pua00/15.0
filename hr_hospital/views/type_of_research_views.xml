@@ -16,7 +16,6 @@
         <field name="model">hr_hospital.type_of_research</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
                 <sheet>
                     <group>
                         <field name="name"/>

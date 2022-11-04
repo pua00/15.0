@@ -23,7 +23,6 @@
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
                 <sheet>
                     <field name="photo" widget="image" class="oe_avatar"/>
                     <group>

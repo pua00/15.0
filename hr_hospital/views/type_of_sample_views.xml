@@ -15,13 +15,12 @@
         <field name="model">hr_hospital.type_of_sample</field>
         <field name="arch" type="xml">
             <form>
-                    <header></header>
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                        </group>
-                    </sheet>
-                </form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 
@@ -32,12 +31,12 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-     <menuitem id="hr_hospital_type_of_sample_menu"
+    <menuitem id="hr_hospital_type_of_sample_menu"
               action="hr_hospital_type_of_sample_action"
               parent="hr_hospital_other_catalog_menu"
               name="Type of sample"
               sequence="600"/>
-    
+
 </odoo>
 
 

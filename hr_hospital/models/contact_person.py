@@ -1,7 +1,6 @@
 import logging
 
 from odoo import fields, models
-from . import person
 
 _logger = logging.getLogger(__name__)
 
