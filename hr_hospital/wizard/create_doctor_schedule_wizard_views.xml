@@ -43,7 +43,6 @@
         </field>
     </record>
 
-
     <record id="create_doctor_schedule_wizard_action" model="ir.actions.server">
         <field name="name">Create doctor schedule wizard</field>
         <field name="model_id" ref="model_create_doctor_schedule_wizard"/>
@@ -53,10 +52,9 @@
         </field>
     </record>
 
-
     <menuitem id="create_doctor_schedule_wizard_menu"
               action="create_doctor_schedule_wizard_action"
-              parent="hr_hospital_hospital_catalog_menu"
+              parent="hr_hospital_report_catalog_menu"
               name="Create doctor schedule wizard"
               sequence="100"/>
 

@@ -16,13 +16,13 @@
     'data': [
 
         'security/ir.model.access.csv',
-
+        'views/hr_hospital_menus.xml',
         'wizard/change_doctor_multy_wizard_views.xml',
         'wizard/create_doctor_schedule_wizard_views.xml',
         'wizard/change_visit_to_doctor_wizard_views.xml',
         'wizard/disease_report_wizard_views.xml',
 
-        'views/hr_hospital_menus.xml',
+
         'views/patient_views.xml',
         'views/doctor_views.xml',
         'views/diagnosis_views.xml',

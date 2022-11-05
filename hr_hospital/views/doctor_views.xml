@@ -19,18 +19,33 @@
             <form>
                 <sheet>
                     <field name="photo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title mb24">
+                        <h1>
+                            <field class="text-break" name="name"
+                                   default_focus="1"
+                                   placeholder="Name doctor our hospital"/>
+                        </h1>
+                    </div>
 
                     <group>
-                        <field name="name"/>
                         <field name="profession"/>
                         <field name="gender"/>
                     </group>
 
-                    <group>
-                        <field name="is_intern"/>
-                        <field name="doctor_mentor_id"
-                               attrs="{'invisible': [('is_intern', '=', False)]}"/>
-                    </group>
+
+                    <notebook>
+                        <page string="Mentor">
+                            <group>
+                                <field name="is_intern"/>
+                                <field name="doctor_mentor_id"
+                                       attrs="{'invisible': [('is_intern', '=', False)]}"/>
+                            </group>
+                        </page>
+                        <page string="Interns">
+                            <field name="intern_ids"/>
+
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
