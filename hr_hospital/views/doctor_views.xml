@@ -12,6 +12,72 @@
         </field>
     </record>
 
+    <record id="view_hr_hospital_doctor_kanban" model="ir.ui.view">
+        <field name="name">hr_hospital.doctor.kanban</field>
+        <field name="model">hr_hospital.doctor</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" default_group_by="profession"
+                    quick_create="0">
+
+                <field name="id"/>
+                <field name="name"/>
+                <field name="profession"/>
+                <field name="gender"/>
+                <field name="photo"/>
+                <templates>
+
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+
+                            <div class="oe_kanban_details">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="o_kanban_image">
+                                            <!--<img t-att-src="kanban_image('hr_hospital.doctor','photo',record.id.raw_value)"/>-->
+                                            <img t-att-src="kanban_image('hr_hospital.doctor', 'photo', record.id.raw_value)"
+                                                 t-att-title="record.id.value"
+                                                 t-att-alt="record.id.value"
+                                                 class="o_image_64_cover float-left mr4"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <strong>
+                                            <field name="name"/>
+                                        </strong>
+                                        <div>
+                                            <span>
+                                                Profession
+                                            </span>
+                                            <field name="profession"/>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                Gender
+                                            </span>
+                                            <field name="gender"/>
+                                        </div>
+                                        <fotter>
+                                            <button string="New vizit"
+                                                    class="oe_highlight"
+                                                    type="object"
+                                                    name="action_make_new_visit_to_doctor"
+                                                    data-hotkey="q">New vizit
+                                            </button>
+                                        </fotter>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+
+        </field>
+    </record>
+
+
     <record id="view_hr_hospital_doctor_form" model="ir.ui.view">
         <field name="name">hr_hospital.doctor.form</field>
         <field name="model">hr_hospital.doctor</field>
@@ -102,7 +168,7 @@
         <field name="name">Doctors</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr_hospital.doctor</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
     </record>
 
     <menuitem id="hr_hospital_doctor_menu"

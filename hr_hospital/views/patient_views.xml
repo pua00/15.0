@@ -24,22 +24,118 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+
+
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                name="action_make_new_visit_to_doctor"
+                                type="object" icon="fa-wrench">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">
+                                    Open new
+                                </span>
+                                <span class="o_stat_text">
+                                    <strong>visit to doctor</strong>
+                                </span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button"
+                                name="action_open_history_of_visits"
+                                type="object" icon="fa-star">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">
+                                    History of
+                                </span>
+                                <span class="o_stat_text">
+                                    <strong>visits</strong>
+                                </span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button"
+                                name="action_open_history_of_research"
+                                type="object" icon="fa-calendar">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">
+                                    History of
+                                </span>
+                                <span class="o_stat_text">
+                                    <strong>research</strong>
+                                </span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button"
+                                name="action_open_history_of_diagnosis"
+                                type="object" icon="fa-building">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">
+                                    History of
+                                </span>
+                                <span class="o_stat_text">
+                                    <strong>diagnosis</strong>
+                                </span>
+                            </div>
+                        </button>
+
+                    </div>
+
                     <field name="photo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title mb24">
+                        <h1>
+                            <field class="text-break" name="name"
+                                   default_focus="1"
+                                   placeholder="Name our patient"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="id"/>
-                        <field name="name"/>
-                        <field name="gender"/>
-                        <field name="date_of_birth"/>
-                        <field name="age"/>
+                        <group>
+                            <field name="gender" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="date_of_birth"/>
+                            <field name="age"/>
+                        </group>
                     </group>
 
-                    <group>
-                        <field name="phone"/>
-                        <field name="email"/>
-                        <field name="passport_date"/>
-                        <field name="contact_person_id"/>
-                        <field name="personal_doctor_id"/>
-                    </group>
+                    <notebook>
+                        <page string="Contact info">
+                            <group>
+                                <field name="phone"/>
+                                <field name="email"/>
+                                <field name="passport_date"/>
+                                <field name="contact_person_id"/>
+                            </group>
+                        </page>
+
+                        <page string="Doctor history">
+                            <group>
+                                <field name="personal_doctor_id"/>
+                                <field name="personal_doctor_history_ids"
+                                       attrs="{'readonly':True}">
+                                    <tree>
+                                        <field name="change_date"/>
+                                        <field name="doctor_id"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+
+                        <page string="Diagnosis">
+                            <group>
+                                <field name="diagnosis_ids"
+                                       attrs="{'readonly':True}">
+                                    <tree>
+                                        <field name="date_of_diagnosis"/>
+                                        <field name="doctor_id"/>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+
+
+                    </notebook>
+
+
                 </sheet>
             </form>
         </field>

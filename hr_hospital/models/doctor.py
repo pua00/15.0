@@ -1,6 +1,6 @@
 import logging
-
-from odoo import fields, models
+from datetime import datetime
+from odoo import fields, models, _
 
 _logger = logging.getLogger(__name__)
 
@@ -23,3 +23,22 @@ class Doctor(models.Model):
         inverse_name='doctor_mentor_id'
     )
     active = fields.Boolean(default=True)
+
+    def action_make_new_visit_to_doctor(self):
+        # for rec in self:
+        ctx = {
+            'default_visit_time':
+                datetime.now(),
+            'default_doctor_id':
+                self.id,
+
+            }
+
+        return {
+            'name': _('Visit doctor'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'hr_hospital.visit_doctor',
+            'target': 'new',
+            'context': ctx,
+        }

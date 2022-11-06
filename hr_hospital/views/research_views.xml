@@ -21,8 +21,11 @@
                 <sheet>
                     <group>
                         <field name="research_date"/>
+                        <field name="visit_doctor_id"/>
                         <field name="patient_id"/>
                         <field name="doctor_id"/>
+                     </group>
+                    <group>
                         <field name="type_of_research_id"/>
                         <field name="type_of_sample_id"/>
                         <field name="conclusion"/>

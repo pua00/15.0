@@ -4,7 +4,6 @@ from datetime import date, datetime
 from odoo import api, fields, models, _
 from . import person
 
-
 _logger = logging.getLogger(__name__)
 
 
@@ -23,6 +22,17 @@ class Patient(models.Model):
     person_id = fields.Many2one(comodel_name='hr_hospital.person')
     personal_doctor_id = fields.Many2one(comodel_name='hr_hospital.doctor',
                                          string='Person doctor')
+
+    personal_doctor_history_ids = fields.One2many(
+        string='Personal doctor history',
+        comodel_name='hr_hospital.personal_doctor_history',
+        inverse_name='patient_id'
+    )
+    diagnosis_ids = fields.One2many(
+        string='Diagnosis',
+        comodel_name='hr_hospital.diagnosis',
+        inverse_name='patient_id'
+    )
 
     @api.depends('date_of_birth')
     def _compute_age(self):
@@ -43,12 +53,71 @@ class Patient(models.Model):
 
         return patient
 
-    @staticmethod
-    def action_open_change_doctor_multy_wizard():
+    def action_open_change_doctor_multy_wizard(self):
+        # print('action_open_change_doctor_multy_wizard')
         return {
             'name': _('Wizard for easy way to change doctor'),
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
             'res_model': 'change_doctor_multy_wizard',
             'target': 'new',
+        }
+
+    def action_open_history_of_visits(self):
+        for rec in self:
+            domain = [('patient_id', '=', rec.id)]
+
+        return {
+            'name': _('Visit doctor'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'tree',
+            'res_model': 'hr_hospital.visit_doctor',
+            'target': 'new',
+            'domain': domain,
+        }
+
+    def action_open_history_of_research(self):
+        for rec in self:
+            domain = [('patient_id', '=', rec.id)]
+
+        return {
+            'name': _('Research'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'tree',
+            'res_model': 'hr_hospital.research',
+            'target': 'new',
+            'domain': domain,
+        }
+
+    def action_open_history_of_diagnosis(self):
+        for rec in self:
+            domain = [('patient_id', '=', rec.id)]
+
+        return {
+            'name': _('Diagnosis'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'tree',
+            'res_model': 'hr_hospital.diagnosis',
+            'target': 'new',
+            'domain': domain,
+        }
+
+    def action_make_new_visit_to_doctor(self):
+        for rec in self:
+            ctx = {
+                'default_visit_time':
+                    datetime.now(),
+                'default_doctor_id':
+                    rec.personal_doctor_id.id,
+                'default_patient_id':
+                    rec.id,
+            }
+
+        return {
+            'name': _('Visit doctor'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'hr_hospital.visit_doctor',
+            'target': 'new',
+            'context': ctx,
         }

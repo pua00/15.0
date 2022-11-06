@@ -29,7 +29,7 @@
                         <field name="comment_doctor_mentor" attrs="{'invisible': [('is_intern', '=', False)]}"/>
                     </group>
                     <group>
-                        <field name="research_ids"/>
+                        <field name="visit_doctor_id"/>
                     </group>
                 </sheet>
             </form>

@@ -48,15 +48,15 @@
                                attrs="{'readonly':[('state', '!=', 'plan')]}"/>
                         <field name="patient_id"
                                attrs="{'readonly':[('state', '!=', 'plan')]}"/>
-                        <field name="diagnosis_id"/>
+<!--                        <field name="diagnosis_id"/>-->
                         <field name="schedule_of_doctor_id"/>
                         <field name="recommendation"/>
                     </group>
-                    <group>
-                        <field name="research_ids"
-                               domain="[('patient_id', '=', patient_id),('doctor_id', '=', doctor_id)]"
-                               attrs="{'readonly':[('state', '!=', 'plan')]}"/>
-                    </group>
+<!--                    <group>-->
+<!--                        <field name="research_ids"-->
+<!--                               domain="[('patient_id', '=', patient_id),('doctor_id', '=', doctor_id)]"-->
+<!--                               attrs="{'readonly':[('state', '!=', 'plan')]}"/>-->
+<!--                    </group>-->
 
                 </sheet>
             </form>

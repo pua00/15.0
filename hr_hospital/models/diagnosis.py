@@ -31,6 +31,11 @@ class Diagnosis(models.Model):
                                        related='doctor_id.doctor_mentor_id')
     comment_doctor_mentor = fields.Text(string='Comment doctor-mentor',
                                         domain=[('is_intern', "=", False)])
-    research_ids = fields.Many2many('hr_hospital.research',
-                                    string='Researches')
+    # research_ids = fields.One2many('hr_hospital.research',
+    #                                inverse_name='patient_id',
+    #                                 string='Researches')
+    visit_doctor_id = fields.Many2one(comodel_name='hr_hospital.visit_doctor',
+                                      string='Visit doctor',
+                                      help='Select your visit doctor',
+                                      required=True)
     active = fields.Boolean(default=True)

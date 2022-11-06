@@ -15,18 +15,26 @@ class Research(models.Model):
                                     required=True)
     patient_id = fields.Many2one(comodel_name='hr_hospital.patient',
                                  string='Patient',
+                                 # readonly=True,
                                  required=True)
+
     doctor_id = fields.Many2one(comodel_name='hr_hospital.doctor',
                                 string='Doctor',
+                                # readonly=True,
                                 required=True)
     type_of_research_id = fields.Many2one(
         comodel_name='hr_hospital.type_of_research',
-        string='Research',
+        string='Type of research',
         required=True)
     type_of_sample_id = fields.Many2one(
         comodel_name='hr_hospital.type_of_sample',
-        string='Samples', )
+        string='Type of samples')
     conclusion = fields.Text()
+
+    visit_doctor_id = fields.Many2one(
+        comodel_name='hr_hospital.visit_doctor',
+        string='Visit doctor',
+        required=True)
 
     active = fields.Boolean(default=True)
 
