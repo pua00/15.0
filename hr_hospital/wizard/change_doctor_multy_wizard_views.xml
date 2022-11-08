@@ -28,4 +28,30 @@
         </field>
     </record>
 
+<!--    <record id="act_change_doctor_multy_wizard_action"-->
+<!--            model="ir.actions.act_window">-->
+<!--        <field name="name">Wizard for easy way to change doctor</field>-->
+<!--        <field name="res_model">change_doctor_multy_wizard</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="target">new</field>-->
+<!--        <field name="binding_model_id" ref="model_change_doctor_multy_wizard"/>-->
+<!--        <field name="binding_view_types">form</field>-->
+<!--        <field name="binding_type">action</field>-->
+<!--    </record>-->
+
+<!--    <record id="change_doctor_multy_wizard_action" model="ir.actions.server">-->
+<!--        <field name="name">Wizard for easy way to change doctor</field>-->
+<!--        <field name="model_id" ref="model_change_doctor_multy_wizard"/>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">-->
+<!--            action = model.action_open_wizard()-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <menuitem id="create_change_doctor_multy_wizard_menu"-->
+<!--              action="change_doctor_multy_wizard_action"-->
+<!--              parent="hr_hospital_report_catalog_menu"-->
+<!--              name="Wizard for easy way to change doctor"-->
+<!--              sequence="200"/>-->
+
 </odoo>

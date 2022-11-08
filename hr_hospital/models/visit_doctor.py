@@ -40,6 +40,7 @@ class VisitDoctor(models.Model):
     schedule_of_doctor_id = fields.Many2one(
         comodel_name='hr_hospital.schedule_of_doctor',
         string='Schedule of Doctor')
+    duration = fields.Float()
 
     def action_set_status_plan(self):
         for rec in self:
@@ -60,13 +61,15 @@ class VisitDoctor(models.Model):
         if self.diagnosis_id:
             raise UserError(_('Visit has diagnosis. Delete not possible'))
 
-    def name_get(self):
-        return [(tag.id, 'Visit {}: {} = > {}'
-                 .format(self.visit_time or "",
-                         tag.doctor_id.name or "",
-                         tag.patient_id.name or "")) for tag in self]
+    
+    # def name_get(self):
+    #     print('name_get')
+    #     return [(tag.id, 'Visit {}: {} = > {}'
+    #              .format(self.visit_time or "",
+    #                      tag.doctor_id.name or "",
+    #                      tag.patient_id.name or "")) for tag in self]
 
-    def action_change_visit_to_doctor_wizard(self):
+    def action_open_change_visit_to_doctor_wizard(self):
         if len(self.env.context['active_ids']) != 1:
             raise UserError(_('May select only ONE visit'))
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="view_change_doctor_multy_wizard_form" model="ir.ui.view">
+    <record id="view_create_doctor_schedule_wizard_form" model="ir.ui.view">
         <field name="name">create_doctor_schedule_wizard.form</field>
         <field name="model">create_doctor_schedule_wizard</field>
         <field name="arch" type="xml">

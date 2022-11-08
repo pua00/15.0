@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <tree>
                 <header>
-                    <button name="action_change_visit_to_doctor_wizard"
+                    <button name="action_open_change_visit_to_doctor_wizard"
                             string="Change personal doctor (wizard)"
                             type="object"/>
                 </header>
@@ -17,6 +17,18 @@
             </tree>
         </field>
     </record>
+
+    <record id="view_hr_hospital_visit_doctor_calendar" model="ir.ui.view">
+        <field name="name">hr_hospital.visit_doctor.calendar</field>
+        <field name="model">hr_hospital.visit_doctor</field>
+        <field name="arch" type="xml">
+            <calendar string="Schedule" date_start="visit_time"
+                      color="state" date_delay="duration" mode="day">
+                <field name="patient_id"/>
+            </calendar>
+        </field>
+    </record>
+
 
     <record id="view_hr_hospital_visit_doctor_form" model="ir.ui.view">
         <field name="name">hr_hospital.visit_doctor.form</field>
@@ -38,7 +50,8 @@
                             type="object"
                             attrs="{'invisible': [('state', '=', 'cancel')]}"
                             class="oe_highlight"/>
-                    <field name="state" widget="statusbar" statusbar_visible="plan,done"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="plan,done"/>
                 </header>
                 <sheet>
                     <group>
@@ -48,15 +61,16 @@
                                attrs="{'readonly':[('state', '!=', 'plan')]}"/>
                         <field name="patient_id"
                                attrs="{'readonly':[('state', '!=', 'plan')]}"/>
-<!--                        <field name="diagnosis_id"/>-->
+                        <!--                        <field name="diagnosis_id"/>-->
                         <field name="schedule_of_doctor_id"/>
                         <field name="recommendation"/>
+                        <field name="duration"/>
                     </group>
-<!--                    <group>-->
-<!--                        <field name="research_ids"-->
-<!--                               domain="[('patient_id', '=', patient_id),('doctor_id', '=', doctor_id)]"-->
-<!--                               attrs="{'readonly':[('state', '!=', 'plan')]}"/>-->
-<!--                    </group>-->
+                    <!--                    <group>-->
+                    <!--                        <field name="research_ids"-->
+                    <!--                               domain="[('patient_id', '=', patient_id),('doctor_id', '=', doctor_id)]"-->
+                    <!--                               attrs="{'readonly':[('state', '!=', 'plan')]}"/>-->
+                    <!--                    </group>-->
 
                 </sheet>
             </form>
@@ -65,10 +79,10 @@
 
 
     <record id="hr_hospital_visit_doctor_action" model="ir.actions.act_window">
-        <field name="name">Visit_doctor</field>
+        <field name="name">Visit doctor</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr_hospital.visit_doctor</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,calendar,form</field>
     </record>
 
 
