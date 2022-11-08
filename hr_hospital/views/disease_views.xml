@@ -19,7 +19,7 @@
 
                 <searchpanel view_types="tree">
                     <field name="category_id"
-                           hierarchize="1"
+                           hierarchies="1"
                            string="Group"
                            icon="fa-users"
                            enable_counters="1"/>

@@ -12,6 +12,19 @@
         </field>
     </record>
 
+    <record id="view_hr_hospital_doctor_search" model="ir.ui.view">
+        <field name="name">hr_hospital.doctor.search</field>
+        <field name="model">hr_hospital.doctor</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="is_intern" string="By intern"
+                        domain="[('is_intern','=','1')]"/>
+                <filter name="is_intern" string="By not intern"
+                        domain="[('is_intern','!=','1')]"/>
+
+            </search>
+        </field>
+    </record>
 
 
     <record id="view_hr_hospital_doctor_kanban" model="ir.ui.view">
