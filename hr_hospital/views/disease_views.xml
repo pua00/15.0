@@ -11,6 +11,23 @@
         </field>
     </record>
 
+    <record id="view_hr_hospital_disease_search" model="ir.ui.view">
+        <field name="name">hr_hospital.disease.search</field>
+        <field name="model">hr_hospital.disease</field>
+        <field name="arch" type="xml">
+            <search>
+
+                <searchpanel view_types="tree">
+                    <field name="category_id"
+                           hierarchize="1"
+                           string="Group"
+                           icon="fa-users"
+                           enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
     <record id="view_hr_hospital_disease_form" model="ir.ui.view">
         <field name="name">hr_hospital.disease.form</field>
         <field name="model">hr_hospital.disease</field>
@@ -30,7 +47,7 @@
         <field name="name">Disease</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr_hospital.disease</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,search,form</field>
     </record>
 
     <menuitem id="hr_hospital_disease_menu"
