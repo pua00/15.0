@@ -54,7 +54,7 @@ class Patient(models.Model):
         return patient
 
     def action_open_change_doctor_multy_wizard(self):
-        print(self, 'action_open_change_doctor_multy_wizard')
+        # print(self, 'action_open_change_doctor_multy_wizard')
         return {
             'name': _('Wizard for easy way to change doctor'),
             'type': 'ir.actions.act_window',

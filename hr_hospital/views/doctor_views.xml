@@ -21,7 +21,6 @@
                         domain="[('is_intern','=','1')]"/>
                 <filter name="is_intern" string="By not intern"
                         domain="[('is_intern','!=','1')]"/>
-
             </search>
         </field>
     </record>

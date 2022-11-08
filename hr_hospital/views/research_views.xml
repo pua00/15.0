@@ -13,6 +13,32 @@
         </field>
     </record>
 
+    <record id="view_hr_hospital_research_search" model="ir.ui.view">
+        <field name="name">hr_hospital.research.search</field>
+        <field name="model">hr_hospital.research</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="groupby_type_of_sample_id" string="type of sample"
+                        context="{'group_by': 'type_of_sample_id'}"/>
+                <field name="patient_id"
+                       filter_domain="['|',('patient_id.name','ilike',self),
+                       ('patient_id.phone','ilike',self)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_hr_hospital_diagnosis_pivot" model="ir.ui.view">
+        <field name="name">hr_hospital.research.pivot</field>
+        <field name="model">hr_hospital.research</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="doctor_id" type="row" />
+                <field name="research_date" type="col" interval="month"/>
+            </pivot>
+        </field>
+    </record>
+
+
     <record id="view_hr_hospital_research_form" model="ir.ui.view">
         <field name="name">hr_hospital.research.form</field>
         <field name="model">hr_hospital.research</field>
@@ -24,7 +50,7 @@
                         <field name="visit_doctor_id"/>
                         <field name="patient_id"/>
                         <field name="doctor_id"/>
-                     </group>
+                    </group>
                     <group>
                         <field name="type_of_research_id"/>
                         <field name="type_of_sample_id"/>
@@ -39,7 +65,7 @@
         <field name="name">Research</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr_hospital.research</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,pivot,form</field>
     </record>
 
     <menuitem id="hr_hospital_research_menu"

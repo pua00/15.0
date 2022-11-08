@@ -25,13 +25,8 @@ class VisitDoctor(models.Model):
                                  string='Patient',
                                  required=True,
                                  index=True)
-    # diagnosis_id = fields.Many2one(comodel_name='hr_hospital.diagnosis',
-    #                                string='Diagnose of patient',
-    #                                index=True)
     recommendation = fields.Text()
     active = fields.Boolean(default=True)
-    # research_ids = fields.Many2many('hr_hospital.research',
-    #                                 string='Researches')
     state = fields.Selection(string='Visit status',
                              selection=[('plan', "Plan"),
                                         ('done', "Done"),
@@ -56,13 +51,15 @@ class VisitDoctor(models.Model):
 
     @api.ondelete(at_uninstall=False)
     def _unlink_only_if_empty(self):
-        if len(self.research_ids) > 0:
-            raise UserError(_('Visit has research. Delete not possible'))
-        if self.diagnosis_id:
-            raise UserError(_('Visit has diagnosis. Delete not possible'))
-
+        pass
+        # Зробити перевірку
+        # if len(self.research_ids) > 0:
+        #     raise UserError(_('Visit has research. Delete not possible'))
+        # if self.diagnosis_id:
+        #     raise UserError(_('Visit has diagnosis. Delete not possible'))
 
     # def name_get(self):
+    #  Видає помилку при виборі в інших об'єктах
     #     print('name_get')
     #     return [(tag.id, 'Visit {}: {} = > {}'
     #              .format(self.visit_time or "",
