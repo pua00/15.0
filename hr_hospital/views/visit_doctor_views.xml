@@ -23,11 +23,15 @@
         <field name="model">hr_hospital.visit_doctor</field>
         <field name="arch" type="xml">
             <calendar string="Schedule" date_start="visit_time"
-                      color="state" date_delay="duration" mode="day">
+                      color="doctor_id" date_delay="duration" mode="month">
                 <field name="patient_id"/>
+                <field name="state" invisible="1" filters="1"/>
+                <field name="doctor_id" invisible="1" filters="1" avatar_field="photo"/>
             </calendar>
         </field>
     </record>
+
+
 
 
     <record id="view_hr_hospital_visit_doctor_form" model="ir.ui.view">

@@ -61,7 +61,7 @@ class VisitDoctor(models.Model):
         if self.diagnosis_id:
             raise UserError(_('Visit has diagnosis. Delete not possible'))
 
-    
+
     # def name_get(self):
     #     print('name_get')
     #     return [(tag.id, 'Visit {}: {} = > {}'
