@@ -18,10 +18,10 @@
         <field name="model">hr_hospital.research</field>
         <field name="arch" type="xml">
             <search>
-                <filter name="groupby_type_of_sample_id" string="type of sample"
-                        context="{'group_by': 'type_of_sample_id'}"/>
                 <field name="patient_id"
-                       filter_domain="['|',('patient_id.name','ilike',self),
+                       filter_domain="[
+                       '|',
+                       ('patient_id.name','ilike',self),
                        ('patient_id.phone','ilike',self)]"/>
             </search>
         </field>
@@ -32,7 +32,7 @@
         <field name="model">hr_hospital.research</field>
         <field name="arch" type="xml">
             <pivot>
-                <field name="doctor_id" type="row" />
+                <field name="doctor_id" type="row"/>
                 <field name="research_date" type="col" interval="month"/>
             </pivot>
         </field>
