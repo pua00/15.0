@@ -14,6 +14,7 @@
                 <field name="doctor_id"/>
                 <field name="patient_id"/>
                 <field name="state"/>
+                <field name="severity"/>
             </tree>
         </field>
     </record>
@@ -27,6 +28,7 @@
                 <field name="patient_id"/>
                 <field name="state" invisible="1" filters="1"/>
                 <field name="doctor_id" invisible="1" filters="1" avatar_field="photo"/>
+
             </calendar>
         </field>
     </record>
@@ -67,6 +69,7 @@
                                attrs="{'readonly':[('state', '!=', 'plan')]}"/>
                         <!--                        <field name="diagnosis_id"/>-->
                         <field name="schedule_of_doctor_id"/>
+                        <field name="severity"/>
                         <field name="recommendation"/>
                         <field name="duration"/>
                     </group>

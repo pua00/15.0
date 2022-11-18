@@ -22,6 +22,9 @@
         'wizard/change_visit_to_doctor_wizard_views.xml',
         'wizard/disease_report_wizard_views.xml',
 
+        'report/model_doctor.xml',
+        'report/model_doctor_templates.xml',
+
 
         'views/patient_views.xml',
         'views/doctor_views.xml',

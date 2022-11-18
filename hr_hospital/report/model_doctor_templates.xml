@@ -1,0 +1,160 @@
+<odoo>
+
+    <template id="report_doctor">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="hr_hospital.logo_template"/>
+                <t t-call="hr_hospital.company_info"/>
+                <t t-call="hr_hospital.doctor_info"/>
+                <t t-call="hr_hospital.report_doctor_visits"/>
+                <t t-call="hr_hospital.report_doctor_patients"/>
+                <br/>
+                <t t-call="hr_hospital.print_date_time"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_doctor_visits">
+        <br/>
+        <strong>Doctor`s visit:</strong>
+        <div>
+            <table class="table-bordered"
+                   style="border: 1px solid black;"
+                   width="100%">
+                <thead style="display: table-row-group; background-color:grey">
+                    <tr>
+                        <th name="th_visit_time" class="text-center">Visit
+                            time
+                        </th>
+                        <th name="th_patient_name" class="text-center">Patient
+                        </th>
+                        <th name="th_status" class="text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="sale_tbody" style="border: 1px solid black;">
+                    <t t-foreach="doc.visit_ids"
+                       t-as="visit">
+                        <tr>
+                            <td name="td_visit_time" class="text-left">
+                                <span t-field="visit.visit_time"/>
+                            </td>
+                            <td name="td_patient_name" class="text-center">
+                                <span t-field="visit.patient_id.name"/>
+                            </td>
+                            <td name="td_status" class="text-center">
+                                <t t-if="visit.severity == 'hard'">
+                                    <span t-field="visit.state"
+                                          t-attf-style="background-color:red"/>
+                                </t>
+                                <t t-elif="visit.severity == 'average'">
+                                    <span t-field="visit.state"
+                                          t-attf-style="background-color:yellow"/>
+                                </t>
+                                <t t-elif="visit.severity == 'easy'">
+                                    <span t-field="visit.state"
+                                          t-attf-style="background-color:green"/>
+                                </t>
+
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="report_doctor_patients">
+        <br/>
+        <strong>Doctor`s patients:</strong>
+        <div>
+            <table class="table-bordered"
+                   style="border: 1px solid black;"
+                   width="100%">
+                <thead style="display: table-row-group; background-color:grey">
+                    <tr>
+                        <th name="th_name" class="text-center">Name</th>
+                        <th name="th_name" class="text-center">Date of birds
+                        </th>
+                        <th name="th_description" class="text-center">
+                            age
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="sale_tbody" style="border: 1px solid black;">
+                    <t t-foreach="doc.patient_ids"
+                       t-as="person">
+                        <tr>
+                            <td name="td_name" class="text-left">
+                                <span t-field="person.name"/>
+                            </td>
+                            <td name="td_date_of_birth" class="text-center">
+                                <span t-field="person.date_of_birth"/>
+                            </td>
+                            <td name="td_description" class="text-center">
+                                <span t-field="person.age"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="logo_template">
+        <div style="text-align:right;">
+            <div class="col-6">
+                <img t-att-src="image_data_uri(user.company_id.logo)"
+                     alt="Logo"/>
+            </div>
+        </div>
+    </template>
+
+    <template id="company_info">
+        <div style="text-align:right;">
+            <div class="col-6">
+                <t t-set="title">
+                    <h3>Company:</h3>
+                </t>
+                <strong>
+                    <div t-out="title"/>
+                </strong>
+                <h2 t-esc="user.company_id.name"/>
+                <br/>
+
+
+            </div>
+        </div>
+    </template>
+
+    <template id="doctor_info">
+        <div style="text-align:right;">
+            <div class="col-6">
+                <t t-set="title">
+                    <h3>Doctor:</h3>
+                </t>
+                <strong>
+                    <div t-out="title"/>
+                </strong>
+                <h2 t-esc="doc.get_full_name()"/>
+                <br/>
+                <t t-set="title">
+                    <h3>Profession:</h3>
+                </t>
+                <strong>
+                    <div t-out="title"/>
+                </strong>
+                <h2 t-esc="doc.get_doctor_profession()"/>
+                <br/>
+
+            </div>
+        </div>
+    </template>
+
+    <template id="print_date_time">
+        <div name="m_5_datetime" style="text-align:right;">
+            <strong>
+                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+            </strong>
+        </div>
+    </template>
+</odoo>

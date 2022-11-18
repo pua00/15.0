@@ -22,3 +22,7 @@ class Person(models.Model):
                          max_height=512)
 
     active = fields.Boolean(default=True)
+
+    def get_full_name(self):
+        self.ensure_one()
+        return f'{self.name}'

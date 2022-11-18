@@ -27,6 +27,12 @@ class Doctor(models.Model):
         comodel_name='hr_hospital.patient',
         inverse_name='personal_doctor_id'
     )
+    visit_ids = fields.One2many(
+        string='List of visits',
+        comodel_name='hr_hospital.visit_doctor',
+        inverse_name='doctor_id'
+    )
+
     active = fields.Boolean(default=True)
 
     def action_make_new_visit_to_doctor(self):
@@ -47,3 +53,7 @@ class Doctor(models.Model):
             'target': 'new',
             'context': ctx,
         }
+
+    def get_doctor_profession(self):
+        self.ensure_one()
+        return f'{self.profession}'
