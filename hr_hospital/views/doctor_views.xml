@@ -38,16 +38,40 @@
                 <field name="profession"/>
                 <field name="gender"/>
                 <field name="photo"/>
+                <field name="patient_ids"/>
                 <templates>
 
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_dropdown_kanban dropdown">
+                                <a class="dropdown-toggle btn"
+                                   data-toggle="dropdown" href="#">
+                                    <span class="fa fa-ellipsis-v"
+                                          aria-hidden="true"/>
+                                </a>
+                                <div class="o_kanban_card_manage_setting row mt16">
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.editable">
+                                            <a role="menuitem" type="edit"
+                                               class="dropdown-item">Edit
+                                            </a>
+                                        </t>
+                                        <t t-if="widget.deletable">
+                                            <a role="menuitem" type="delete"
+                                               class="dropdown-item">Delete
+                                            </a>
+                                        </t>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--                            <div class="col-xs-12" style="height: 15px;"/>-->
+
 
                             <div class="oe_kanban_details">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="o_kanban_image">
-                                            <!--<img t-att-src="kanban_image('hr_hospital.doctor','photo',record.id.raw_value)"/>-->
                                             <img t-att-src="kanban_image('hr_hospital.doctor', 'photo', record.id.raw_value)"
                                                  t-att-title="record.id.value"
                                                  t-att-alt="record.id.value"
@@ -55,22 +79,35 @@
                                         </div>
                                     </div>
 
+
                                     <div class="col-md-5">
                                         <strong>
                                             <field name="name"/>
                                         </strong>
                                         <div>
                                             <span>
-                                                Profession
+                                                <strong>Profession:</strong>
                                             </span>
                                             <field name="profession"/>
                                         </div>
                                         <div>
                                             <span>
-                                                Gender
+                                                <strong>Gender:</strong>
                                             </span>
                                             <field name="gender"/>
                                         </div>
+                                        <div>
+                                            <span>
+                                                <strong>Patients:</strong>
+                                            </span>
+
+                                            <div class="o_kanban_primary_right">
+                                                <field name="patient_ids"
+                                                       widget="many2many_tags"/>
+                                            </div>
+                                        </div>
+
+
                                         <fotter>
                                             <button string="New vizit"
                                                     class="oe_highlight"

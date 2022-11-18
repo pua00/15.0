@@ -22,6 +22,11 @@ class Doctor(models.Model):
         comodel_name='hr_hospital.doctor',
         inverse_name='doctor_mentor_id'
     )
+    patient_ids = fields.One2many(
+        string='List of patients',
+        comodel_name='hr_hospital.patient',
+        inverse_name='personal_doctor_id'
+    )
     active = fields.Boolean(default=True)
 
     def action_make_new_visit_to_doctor(self):
@@ -32,7 +37,7 @@ class Doctor(models.Model):
             'default_doctor_id':
                 self.id,
 
-            }
+        }
 
         return {
             'name': _('Visit doctor'),
