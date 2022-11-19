@@ -1,7 +1,9 @@
+import datetime
 import logging
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from odoo import api, exceptions, fields, models, _
+
+# from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -55,6 +57,17 @@ class VisitDoctor(models.Model):
         for rec in self:
             rec.state = 'cancel'
 
+    def write(self, vals):
+        visit_doctor = super(VisitDoctor, self).write(vals)
+        check_date = datetime.datetime.now() - datetime.timedelta(days=30)
+        if self.env.user.has_group(
+                'hr_hospital.group_hr_hospital_user') \
+                and self.visit_time < check_date:
+            raise exceptions.UserError(
+                _('May change document only last 30 days'))
+
+        return visit_doctor
+
     @api.ondelete(at_uninstall=False)
     def _unlink_only_if_empty(self):
         pass
@@ -74,12 +87,12 @@ class VisitDoctor(models.Model):
 
     def action_open_change_visit_to_doctor_wizard(self):
         if len(self.env.context['active_ids']) != 1:
-            raise UserError(_('May select only ONE visit'))
+            raise exceptions.UserError(_('May select only ONE visit'))
 
         current_visit = self.env['hr_hospital.visit_doctor'].browse(
             self.env.context['active_id'])
         if current_visit.state != 'plan':
-            raise UserError(_('May select visit in state ONLY plan'))
+            raise exceptions.UserError(_('May select visit in state ONLY plan'))
 
         return {
             'name': _('Wizard for easy way to Change visit to doctor'),

@@ -15,6 +15,7 @@
 
     'data': [
 
+        'security/hr_hospital_groups.xml',
         'security/ir.model.access.csv',
 
         'data/hr_hospital_doctor_data.xml',
