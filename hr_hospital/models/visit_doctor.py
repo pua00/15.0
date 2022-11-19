@@ -33,10 +33,10 @@ class VisitDoctor(models.Model):
                                         ('cancel', "Cancel")],
                              default='plan', required=True)
     severity = fields.Selection(string='Visit status',
-                             selection=[('easy', "Easy"),
-                                        ('average', "Average"),
-                                        ('hard', "Hard")],
-                             default='average', required=True)
+                                selection=[('easy', "Easy"),
+                                           ('average', "Average"),
+                                           ('hard', "Hard")],
+                                default='average', required=True)
 
     schedule_of_doctor_id = fields.Many2one(
         comodel_name='hr_hospital.schedule_of_doctor',
