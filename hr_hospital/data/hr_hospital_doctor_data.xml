@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="datadoctor_1" model="hr_hospital.doctor" forcecreate="True">
+            <field name="name">Doctor #1</field>
+            <field name="gender">male</field>
+            <field name="phone">(067) 000-22-44</field>
+            <field name="email">doctor1@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="hr_hospital/static/img/user_1.png"/>
+            <field name="profession">Base Doctor</field>
+        </record>
+        <record id="datadoctor_2" model="hr_hospital.doctor" forcecreate="True">
+            <field name="name">Doctor #2</field>
+            <field name="gender">male</field>
+            <field name="phone">(050) 000-22-33</field>
+            <field name="email">doctor2@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="hr_hospital/static/img/user_2.png"/>
+            <field name="profession">Base Doctor</field>
+        </record>
+        <record id="datadoctor_3" model="hr_hospital.doctor" forcecreate="True">
+            <field name="name">Doctor #3</field>
+            <field name="gender">femail</field>
+            <field name="phone">(068) 000-22-33</field>
+            <field name="email">doctor3@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="hr_hospital/static/img/user_3.png"/>
+            <field name="profession">Base Doctor</field>
+        </record>
+    </data>
+</odoo>
+
+
+
+
+

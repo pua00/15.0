@@ -1,6 +1,6 @@
 import logging
 from datetime import datetime
-from odoo import fields, models, _
+from odoo import api, fields, models, _
 
 _logger = logging.getLogger(__name__)
 
@@ -57,3 +57,10 @@ class Doctor(models.Model):
     def get_doctor_profession(self):
         self.ensure_one()
         return f'{self.profession}'
+
+    @api.onchange('is_intern')
+    def onchange_is_intern(self):
+        if self.is_intern:
+            self.doctor_mentor_id = self.env.ref('hr_hospital.datadoctor_1')
+        else:
+            self.doctor_mentor_id = False

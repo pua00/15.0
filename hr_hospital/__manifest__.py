@@ -16,6 +16,9 @@
     'data': [
 
         'security/ir.model.access.csv',
+
+        'data/hr_hospital_doctor_data.xml',
+
         'views/hr_hospital_menus.xml',
         'wizard/change_doctor_multy_wizard_views.xml',
         'wizard/create_doctor_schedule_wizard_views.xml',
@@ -24,7 +27,6 @@
 
         'report/model_doctor.xml',
         'report/model_doctor_templates.xml',
-
 
         'views/patient_views.xml',
         'views/doctor_views.xml',
@@ -40,7 +42,10 @@
         'views/schedule_of_doctor_views.xml',
 
     ],
-    'demo': [],
+    'demo': [
+        'data/hr_hospital_doctor_demo.xml',
+        'data/hr_hospital_doctor2_demo.xml'
+    ],
 
     'installable': True,
     'auto_install': False,

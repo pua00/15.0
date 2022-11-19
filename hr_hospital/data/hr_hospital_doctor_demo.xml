@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="doctor_1" model="hr_hospital.doctor" forcecreate="True">
+            <field name="name">Doctor House</field>
+            <field name="gender">male</field>
+            <field name="phone">(067) 111-22-44</field>
+            <field name="email">dr.house@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="hr_hospital/static/img/user_1.png"/>
+            <field name="profession">Children doctor</field>
+        </record>
+        <record id="doctor_2" model="hr_hospital.doctor" forcecreate="True">
+            <field name="name">Doctor Justin</field>
+            <field name="gender">male</field>
+            <field name="phone">(050) 111-22-33</field>
+            <field name="email">dr.justin@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="hr_hospital/static/img/user_2.png"/>
+            <field name="profession">Super doctor</field>
+        </record>
+        <record id="intern_1" model="hr_hospital.doctor" forcecreate="True">
+            <field name="name">Intern Oliviya</field>
+            <field name="gender">femail</field>
+            <field name="phone">(068) 111-22-33</field>
+            <field name="email">int.oliviya@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="hr_hospital/static/img/user_3.png"/>
+            <field name="profession">Old intern</field>
+            <field name="is_intern" eval="True"/>
+            <field name="doctor_mentor_id" ref="hr_hospital.doctor_1"/>
+
+        </record>
+        <record id="intern_2" model="hr_hospital.doctor" forcecreate="True">
+            <field name="name">Intern Max</field>
+            <field name="gender">male</field>
+            <field name="phone">(033) 111-22-33</field>
+            <field name="email">int.max@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="hr_hospital/static/img/user_4.png"/>
+            <field name="profession">Yong intern</field>
+            <field name="is_intern" eval="True"/>
+            <field name="doctor_mentor_id" ref="hr_hospital.doctor_2"/>
+
+        </record>
+        <record id="intern_3" model="hr_hospital.doctor" forcecreate="True">
+            <field name="name">Intern Max</field>
+            <field name="gender">male</field>
+            <field name="phone">(033) 111-22-33</field>
+            <field name="email">int.max@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="hr_hospital/static/img/user_4.png"/>
+            <field name="profession">Yong intern</field>
+            <field name="is_intern" eval="True"/>
+            <field name="doctor_mentor_id" ref="hr_hospital.doctor_2"/>
+
+        </record>
+
+
+
+    </data>
+</odoo>
+
+
+
+
+
