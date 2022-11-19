@@ -1,7 +1,7 @@
 <odoo>
 
     <template id="report_doctor">
-        <t t-call="web.html_container">
+        <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="doc">
                 <t t-call="hr_hospital.logo_template"/>
                 <t t-call="hr_hospital.company_info"/>
@@ -16,7 +16,7 @@
 
     <template id="report_doctor_visits">
         <br/>
-        <strong>Doctor`s visit:</strong>
+        <strong>Doctor`s visits:</strong>
         <div>
             <table class="table-bordered"
                    style="border: 1px solid black;"
@@ -101,8 +101,8 @@
     </template>
 
     <template id="logo_template">
-        <div style="text-align:right;">
-            <div class="col-6">
+        <div style="text-align:right; width=100%">
+            <div>
                 <img t-att-src="image_data_uri(user.company_id.logo)"
                      alt="Logo"/>
             </div>
@@ -111,7 +111,7 @@
 
     <template id="company_info">
         <div style="text-align:right;">
-            <div class="col-6">
+            <div>
                 <t t-set="title">
                     <h3>Company:</h3>
                 </t>
@@ -128,7 +128,7 @@
 
     <template id="doctor_info">
         <div style="text-align:right;">
-            <div class="col-6">
+            <div>
                 <t t-set="title">
                     <h3>Doctor:</h3>
                 </t>
