@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem id="pua_cartridge_menu"
+              web_icon="pua_cartridge,static/description/icon.png"
+              name="Cartridge"
+              sequence="100"/>
+
+    <menuitem id="pua_cartridge_catalog_menu"
+              parent="pua_cartridge_menu"
+              name="Catalogs"
+              sequence="100"/>
+
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="shelf_1" model="pua_cartridge.shelf" forcecreate="True">
+            <field name="name">Shelf of Robin</field>
+            <field name="is_shelfOfUser" eval="True"/>
+            <field name="engineer_id" ref="pua_cartridge.engineer_1"/>
+        </record>
+        <record id="shelf_2" model="pua_cartridge.shelf" forcecreate="True">
+            <field name="name">Shelf of Bad</field>
+            <field name="is_shelfOfUser" eval="True"/>
+            <field name="engineer_id" ref="pua_cartridge.engineer_2"/>
+        </record>
+        <record id="shelf_3" model="pua_cartridge.shelf" forcecreate="True">
+            <field name="name">Shelf of Garry</field>
+            <field name="is_shelfOfUser" eval="True"/>
+            <field name="engineer_id" ref="pua_cartridge.engineer_3"/>
+        </record>
+        <record id="shelf_enter" model="pua_cartridge.shelf" forcecreate="True">
+            <field name="name">Shelf for Enter</field>
+        </record>
+        <record id="shelf_exit" model="pua_cartridge.shelf" forcecreate="True">
+            <field name="name">Shelf for Exit</field>
+        </record>
+    </data>
+</odoo>
+
+
+
+
+

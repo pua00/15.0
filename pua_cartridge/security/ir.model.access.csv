@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access__pua_cartridge_shelf__group_user,access__pua_cartridge_shelf__group_user,model_pua_cartridge_shelf,base.group_user,1,1,1,1
+access__pua_cartridge_engineer__group_user,access__pua_cartridge_engineer__group_user,model_pua_cartridge_engineer,base.group_user,1,1,1,1

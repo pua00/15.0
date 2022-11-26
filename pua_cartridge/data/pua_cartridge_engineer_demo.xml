@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="engineer_1" model="pua_cartridge.engineer" forcecreate="True">
+            <field name="name">Engineer Robin</field>
+        </record>
+        <record id="engineer_2" model="pua_cartridge.engineer" forcecreate="True">
+            <field name="name">Engineer Bad</field>
+        </record>
+        <record id="engineer_3" model="pua_cartridge.engineer" forcecreate="True">
+            <field name="name">Engineer Garry</field>
+        </record>
+    </data>
+</odoo>
+
+
+
+
+
