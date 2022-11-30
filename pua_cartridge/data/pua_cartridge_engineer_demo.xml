@@ -3,12 +3,27 @@
     <data noupdate="1">
         <record id="engineer_1" model="pua_cartridge.engineer" forcecreate="True">
             <field name="name">Engineer Robin</field>
+            <field name="gender">male</field>
+            <field name="phone">(068) 111-22-33</field>
+            <field name="email">eng.robin@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="pua_cartridge/static/img/male.png"/>
         </record>
         <record id="engineer_2" model="pua_cartridge.engineer" forcecreate="True">
             <field name="name">Engineer Bad</field>
+            <field name="gender">female</field>
+            <field name="phone">(068) 111-44-55</field>
+            <field name="email">eng.bad@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="pua_cartridge/static/img/female.png"/>
         </record>
         <record id="engineer_3" model="pua_cartridge.engineer" forcecreate="True">
             <field name="name">Engineer Garry</field>
+            <field name="gender">male</field>
+            <field name="phone">(068) 111-66-88</field>
+            <field name="email">eng.garry@gmail.com</field>
+            <field name="photo" type="base64"
+                   file="pua_cartridge/static/img/male.png"/>
         </record>
     </data>
 </odoo>

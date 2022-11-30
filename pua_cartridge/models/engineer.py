@@ -10,4 +10,13 @@ class Engineer(models.Model):
 
     name = fields.Char(string='Engineer`s name',
                        required=True)
+    gender = fields.Selection(selection=[('male', "Male"),
+                                         ('female', "Female")],
+                              default='male',
+                              required=True)
+    phone = fields.Char(string='Mobile phone')
+    email = fields.Char(string='E-Mail')
+    photo = fields.Image(string='Photo of person',
+                         max_width=512,
+                         max_height=512)
     active = fields.Boolean(default=True)

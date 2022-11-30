@@ -11,4 +11,9 @@
               name="Catalogs"
               sequence="100"/>
 
+    <menuitem id="pua_cartridge_repair_menu"
+              parent="pua_cartridge_menu"
+              name="Repair"
+              sequence="200"/>
+
 </odoo>

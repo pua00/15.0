@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_pua_cartridge_product_tree" model="ir.ui.view">
+        <field name="name">product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='detailed_type']" position="after">
+                <field name="is_for_repair_cartridge"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="pua_cartridge_product_action" model="ir.actions.act_window">
+        <field name="name">Product</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="pua_cartridge_product_menu"
+              action="pua_cartridge_product_action"
+              parent="pua_cartridge_catalog_menu"
+              name="Product"
+              sequence="600"/>
+
+</odoo>
+
+
+

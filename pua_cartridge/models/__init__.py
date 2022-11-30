@@ -1,3 +1,8 @@
 from . import (shelf,
-               engineer
+               engineer,
+               type_of_cartridge,
+               cartridge,
+               partner,
+               product,
+               repair_cartridge
                )

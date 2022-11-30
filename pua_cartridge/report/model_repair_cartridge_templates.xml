@@ -1,0 +1,99 @@
+<odoo>
+
+    <template id="logo_template">
+        <div style="text-align:right; width=100%">
+            <div>
+                <img t-att-src="image_data_uri(user.company_id.logo)"
+                     alt="Logo"/>
+            </div>
+        </div>
+    </template>
+
+    <template id="company_info">
+        <div style="text-align:right;">
+            <div>
+                <t t-set="title">
+                    <h3>Company:</h3>
+                </t>
+                <strong>
+                    <div t-out="title"/>
+                </strong>
+                <h2 t-esc="user.company_id.name"/>
+                <br/>
+
+            </div>
+        </div>
+    </template>
+
+    <template id="document_info">
+        <div style="text-align:left;">
+            <div>
+                <t t-set="title">
+                    <strong>Document date:</strong>
+                </t>
+                <strong>
+                    <div t-out="title"/>
+                </strong>
+                <h2 t-esc="doc.doc_date.strftime('%Y-%m-%d %H:%M')"/>
+                <br/>
+
+                <t t-set="title">
+                    <strong>Partner:</strong>
+                </t>
+                <strong>
+                    <div t-out="title"/>
+                </strong>
+                <h2 t-esc="doc.partner_id.name"/>
+                <br/>
+
+                 <t t-set="title">
+                    <strong>Cartridge:</strong>
+                </t>
+                <strong>
+                    <div t-out="title"/>
+                </strong>
+                <h2 t-esc="doc.cartridge_id.name"/>
+                <br/>
+                <br/>
+                <t t-set="title">
+                    <strong>Engineer:</strong>
+                </t>
+                <strong>
+                    <div t-out="title"/>
+                </strong>
+                <h2 t-esc="doc.engineer_id.name"/>
+                <br/>
+                <br/>
+                <t t-set="title">
+                    <strong>Shelf:</strong>
+                </t>
+                <strong>
+                    <div t-out="title"/>
+                </strong>
+                <h2 t-esc="doc.shelf_id.name"/>
+                <br/>
+
+            </div>
+        </div>
+    </template>
+
+    <template id="print_date_time">
+        <div name="m_5_datetime" style="text-align:right;">
+            <strong>
+                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+            </strong>
+        </div>
+    </template>
+
+    <template id="report_repair_cartridge">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="pua_cartridge.logo_template"/>
+                <t t-call="pua_cartridge.company_info"/>
+                <t t-call="pua_cartridge.document_info"/>
+                <br/>
+                <t t-call="pua_cartridge.print_date_time"/>
+            </t>
+        </t>
+    </template>
+</odoo>

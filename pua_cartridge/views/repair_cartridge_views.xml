@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_pua_cartridge_repair_cartridge_tree" model="ir.ui.view">
+        <field name="name">pua_cartridge_repair_cartridge.tree</field>
+        <field name="model">pua_cartridge.repair_cartridge</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button name="action_open_change_state_multy_wizard"
+                            string="Change state (wizard)"
+                            type="object"/>
+                </header>
+                <field name="doc_date"/>
+                <field name="urgent_repair"/>
+                <field name="partner_id"/>
+                <field name="cartridge_id"/>
+                <field name="state"/>
+                <field name="engineer_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_pua_cartridge_repair_cartridge_form" model="ir.ui.view">
+        <field name="name">pua_cartridge_repair_cartridge.form</field>
+        <field name="model">pua_cartridge.repair_cartridge</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"
+                           options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="doc_date"/>
+                    </group>
+                    <group>
+                        <field name="urgent_repair"/>
+                        <field name="repair_on_date"/>
+                    </group>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="cartridge_id"
+                               domain="[('partner_id', '=', partner_id)]"/>
+                        <field name="engineer_id"/>
+                        <field name="shelf_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="pua_cartridge_repair_cartridge_action"
+            model="ir.actions.act_window">
+        <field name="name">Repair cartridge</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pua_cartridge.repair_cartridge</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="pua_cartridge_repair_cartridge_menu"
+              action="pua_cartridge_repair_cartridge_action"
+              parent="pua_cartridge_repair_menu"
+              name="Repair cartridge"
+              sequence="100"/>
+
+</odoo>
+
+
+

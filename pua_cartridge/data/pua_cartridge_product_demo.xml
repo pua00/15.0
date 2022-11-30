@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="product_toner_1" model="product.product">
+            <field name="name">Toner #1</field>
+<!--            <field name="categ_id" ref="product_category_5"/>-->
+            <field name="standard_price">10.0</field>
+            <field name="list_price">10.50</field>
+            <field name="detailed_type">consu</field>
+            <field name="weight">0.01</field>
+<!--            <field name="uom_id" ref="uom.product_uom_unit"/>-->
+<!--            <field name="uom_po_id" ref="uom.product_uom_unit"/>-->
+            <field name="description">Toner for cartridge.</field>
+            <field name="default_code">Cart_0001</field>
+            <field name="image_1920" type="base64"
+                   file="pua_cartridge/static/img/toner.png"/>
+        </record>
+        <record id="product_toner_2" model="product.product">
+            <field name="name">Toner #2</field>
+<!--            <field name="categ_id" ref="product_category_5"/>-->
+            <field name="standard_price">10.0</field>
+            <field name="list_price">10.50</field>
+            <field name="detailed_type">consu</field>
+            <field name="weight">0.01</field>
+<!--            <field name="uom_id" ref="uom.product_uom_unit"/>-->
+<!--            <field name="uom_po_id" ref="uom.product_uom_unit"/>-->
+            <field name="description">Toner for cartridge.</field>
+            <field name="default_code">Cart_0002</field>
+            <field name="image_1920" type="base64"
+                   file="pua_cartridge/static/img/toner.png"/>
+        </record>
+        <record id="product_toner_3" model="product.product">
+            <field name="name">Toner #3</field>
+<!--            <field name="categ_id" ref="product_category_5"/>-->
+            <field name="standard_price">10.0</field>
+            <field name="list_price">10.50</field>
+            <field name="detailed_type">consu</field>
+            <field name="weight">0.01</field>
+<!--            <field name="uom_id" ref="uom.product_uom_unit"/>-->
+<!--            <field name="uom_po_id" ref="uom.product_uom_unit"/>-->
+            <field name="description">Toner for cartridge.</field>
+            <field name="default_code">Cart_0001</field>
+            <field name="image_1920" type="base64"
+                   file="pua_cartridge/static/img/toner.png"/>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+

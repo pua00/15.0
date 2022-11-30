@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="type_of_cartridge_1" model="pua_cartridge.type_of_cartridge" forcecreate="True">
+            <field name="name">Brother HL1030</field>
+        </record>
+        <record id="type_of_cartridge_2" model="pua_cartridge.type_of_cartridge" forcecreate="True">
+            <field name="name">Canon 039\039H</field>
+        </record>
+        <record id="type_of_cartridge_3" model="pua_cartridge.type_of_cartridge" forcecreate="True">
+            <field name="name">HP 126A (CE310A)</field>
+        </record>
+        <record id="type_of_cartridge_4" model="pua_cartridge.type_of_cartridge" forcecreate="True">
+            <field name="name">Konica Minolta MC 8650</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
