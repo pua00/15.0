@@ -2,6 +2,7 @@
 Ruslan Panchenko: Repair cartridge
 ==========================
 This module create the functionality of repair cartridge.
+
 Installation
 ============
 To install this module, you need to:
@@ -9,6 +10,7 @@ To install this module, you need to:
 #. Add the repository path to the config file.
 #. Update the app list.
 #. Install the module.
+
 Usage
 =====
 User manual
@@ -17,14 +19,17 @@ To view the module description, you need to:
 * Go to **Apps** > **Apps** > **Main Apps**.
 * Search the module by name.
 * Open the module form.
+
 Notes:
 ------
 - Don't forget to update `Apps List` by clicking on `Update Apps List` menu.
 Credits
 =======
+
 Authors
 -------
-* Ruslan Panchenko
+* Ruslan
+
 Contributors
 ------------
 * Ruslan Panchenko<pua@ukr.net>
